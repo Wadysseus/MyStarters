@@ -1,0 +1,100 @@
+.ipsumDizzle
+{
+    
+}
+
+body
+{
+    width:960px;
+    background-color:mediumaquamarine;
+    margin:auto;
+}
+
+.turtleImage
+{
+    margin:10px;
+    text-align:center;
+    float:left;
+    width:40vw;
+}
+
+.turtleGallery
+{
+    text-align: center;
+    background-color: rgba(80, 201, 150, 0.8);
+}
+
+.turtleThumbs
+{
+    margin:10px;
+    width:5vw;
+    min-width: 50px;
+}
+
+html
+{
+    margin-top: 15px;
+    /*margin:auto;*/
+    background-color:peachpuff;
+}
+
+nav
+{
+    background-color: aliceblue;
+    width:90%;
+    padding:10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align:center;
+    box-sizing: border-box;
+    font-weight:bold;
+    margin:0 auto;
+    /*text-align:center;*/
+}
+
+nav a
+{
+    text-decoration: none;
+    color:papayawhip;
+    margin:10px;
+    font-family: Monospace;
+    background-color:indigo;
+    padding:5px;
+    border:1px dotted midnightblue;
+    border-radius:5px;
+}
+
+p
+{
+    /*text-align:center;*/
+    font-family: Helvetica;
+    margin:5px 10px;
+}
+
+@media (max-width:960px)
+{
+    nav a
+    {
+    display:block;
+    width:95%;
+    }
+    nav
+    {
+        width:40vw;
+        margin:auto;
+    }
+    .turtleImage
+    {
+        padding:10px;
+    }
+    
+    .turtleGallery
+    {
+        width: 30vw;
+        margin: 0 auto;
+    }
+    
+    .turtleGallery a{
+        display:block;
+    }
+}

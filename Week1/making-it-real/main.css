@@ -1,0 +1,133 @@
+html
+{
+    background-color:slategrey;
+    margin-top: 25px;
+}
+
+body
+{
+max-width:640px;
+background-color:aliceblue;
+margin:auto;
+min-width: 320px;
+}
+header
+{
+    background-color:limegreen;
+    height: 200px;
+    border-bottom: 5px solid mediumseagreen;
+    box-sizing:border-box;
+    padding-top:140px;
+    padding-left: 15px;
+}
+
+header h2
+{
+    color:white;
+    font-family:sans-serif;
+}
+
+.navBar{
+    background-color:#444;
+    text-align:right;
+    height:60px;
+    border-bottom: 5px solid #222;
+    box-sizing:border-box;
+    padding-top:20px;
+}
+
+.navBar a{
+    color:white;
+    text-decoration:none;
+    padding: 10px;
+    font-family:Palatino;
+    margin-right:10px;
+}
+
+.topArticle{
+    padding: 0px 40px;
+}
+
+.topArticle h3
+{
+    padding: 25px 0px;
+    margin-left: -20px;
+}
+
+.topArticle p
+{
+    text-align:justify;
+}
+
+.sideBar{
+    max-height:300px;
+    width:200px;
+    position:fixed;
+    left: 75%;
+    top:20%;
+    background-color:aliceblue;
+    border-bottom: 5px solid #222;
+    
+}
+
+.sideBar h4{
+    margin-left: 5px;
+}
+
+.sideBar p{
+    margin-left:15px;
+}
+
+.sideBar a{
+    text-decoration:none;
+    color:gray;
+    opacity:0.5;
+    font-size: 11px;
+}
+
+.secondArticle{
+    padding: 0px 40px;
+}
+
+.secondArticle h3
+{
+    padding: 15px 0px;
+    margin-left: -20px;
+}
+
+.secondArticle p
+{
+    border-top: 1px solid gray;
+    padding-top: 20px;
+    text-align:justify;
+}
+
+.blogTable{
+    margin: 0px -20px;
+    border-spacing: 0;
+}
+
+.blogTable th{
+    background-color: lightgray;
+}
+
+.blogTable table, th, td{
+    border: 1px solid lightslategray;
+}
+
+.blogTable a {
+    text-decoration: none;
+    background-color:cornflowerblue;
+    color:white;
+    padding: 5px 15px;
+}
+
+#noBorderP{
+    border:none;
+    margin-top: -10px;
+}
+
+@mediaquery (max-width:1250px) //look this up on your CSS Responsiveness exercise -- first thing to do is fix the sidebar so that way it doesn't overlap the content
+
+/* HI WADE THIS IS A BACKGROUDN WITH GRADIENT ZOMG
+-webkit-linear-gradient(top, rgba(240,248,255,.7), #ecf0f1)*/
