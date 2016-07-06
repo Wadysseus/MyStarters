@@ -70,6 +70,11 @@ header h2
     
 }
 
+#pond {
+  display: flex;
+  justify-content:flex-end;
+}
+
 .sideBar h4{
     margin-left: 5px;
 }
@@ -127,7 +132,20 @@ header h2
     margin-top: -10px;
 }
 
-@mediaquery (max-width:1250px) //look this up on your CSS Responsiveness exercise -- first thing to do is fix the sidebar so that way it doesn't overlap the content
-
+@media (max-width:1120px) 
+{
+    .sideBar
+    {
+        opacity:0.7;
+        top:5%;
+        left:25%;
+        min-height: 100px;
+        min-width: 500px;
+    }
+    .sideBar p 
+    {
+        display:inline;
+    }
+}
 /* HI WADE THIS IS A BACKGROUDN WITH GRADIENT ZOMG
 -webkit-linear-gradient(top, rgba(240,248,255,.7), #ecf0f1)*/

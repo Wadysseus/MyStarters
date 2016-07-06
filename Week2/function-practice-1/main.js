@@ -45,6 +45,20 @@
 // square()
 
 
+// ALTERNATE VICTORY - RE-READ THIS
+
+// function power(base, exponent) {
+//   if (exponent == undefined)
+//     exponent = 2;
+//   var result = 1;
+//   for (var count = 0; count < exponent; count++)
+//     result *= base;
+//   return result;
+// }
+
+
+
+
 
 // - Write a function called 'negate' which takes a single number argument and returns the negative of that number.
 //     - negate(5) should return -5
@@ -152,7 +166,7 @@
 //     - getSeconds('10:25') should return 625
 
 
-function getSeconds(time){
+function getSeconds(MM:SS){
     
 }
 
