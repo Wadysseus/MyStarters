@@ -1,0 +1,141 @@
+/* ADD YOUR STYLES HERE */
+
+.tableStyle
+{
+    width: 800px;
+    margin: 1em 2em 3em 4em;
+    display: inline-table;
+}
+
+.tableStyle tr 
+{
+    border: solid;
+    border-width: 1px;
+    border-left:none;
+    border-right:none;
+    border-top:none;
+}
+
+
+
+.statsText
+{
+    font-size:30px;
+    font-weight:bolder;
+}
+
+.grayText
+{
+    font-size: 11px;
+    color: gray;
+}
+
+.statsSpacing
+{
+    display: inline-table;
+    width: 250px;
+}
+
+.statsSpacing tr
+{
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+.tableClass td
+{
+    width: 100%;
+}
+
+.tableClass div
+{
+    background-color:#00AAFF;
+    color:white;
+    border-radius:5px;
+    padding: 10px;
+}
+
+/*.boxBackground
+{
+    background-color:rgba(0,0,0,0.4);
+    padding:10px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    /*transform: translateY:(-50%) translateX(-50%);*/
+}*/
+
+/*.boxOfLight
+{
+    height: 100%;
+    width: 40%;
+    margin: 20px auto;
+    padding: 30px;
+    border: solid blue 10px;
+    border-radius: 5px;
+    background-color:white;
+    position: relative;
+    top:300px;
+}
+
+.redBtn
+{
+    display: inline-block;
+    background-color:red;
+    width: 80px;
+    height: 25px;
+    margin: 10px auto;
+    border:20px;
+    border-radius:5px;
+    position: relative;
+    float: right;
+    bottom: 10px;
+}
+
+.redBtn a
+{
+    color:white;
+    position: relative;
+    left: 20px;
+    top: 5px;
+}*/
+
+.floatyMcFloatFace
+{
+    float: left;
+    margin: 0em 1em 0em 0em;
+}
+
+.overFloat
+{
+     overflow: auto;
+}
+
+.relPos
+{
+    position: auto;
+}
+
+.relPosRight
+{
+    position: relative;
+    left: 20px;
+}
+
+.relPosRight img
+{
+    float: left;
+    position: relative;
+    margin: 0px 5px 0px 0px;
+}
+
+.relPosRight p
+{
+    position: relative;
+    left: 32px;
+}
+
