@@ -1,0 +1,41 @@
+<html ng-app="PopUpDisplay">
+    
+
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        <script type="text/javascript" src="main3.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="main3.css">
+        
+        <title>Intro to Angular</title>
+    </head>
+    <body ng-controller="popUpToggler as pUpTog" class="container">
+        <header>
+            
+        </header>
+        <section >
+             <button id="bigBadaButton" class="btn btn-danger" ng-click="pUpTog.bigReveal = !pUpTog.bigReveal">DON'T PRESS</button>
+        </section>
+        <div ng-init="pUpTog.bigReveal = false" ng-show="pUpTog.bigReveal" class="popUpWindow"> 
+            <h1 style="text-align:center">I WARNED YOU!</h1>
+            <p style="text-align:center">Let this searing shade of chartreuse shame you and your churlish shenanigans!</p>
+            <button id="closingButton" class="btn btn-primary" ng-click="pUpTog.bigReveal = !pUpTog.bigReveal">Press to End the Madness!</button>
+        </div>
+        
+        
+        
+        <!-- when $scope.myValue is truthy (element is visible) -->
+        <!--<div ng-show="myValue"></div>-->
+
+        <!-- when $scope.myValue is falsy (element is hidden) -->
+        <!--<div ng-show="myValue" class="ng-hide"></div>-->
+        
+        <!--<h2 ng-class="{pink: hover1}" ng-mouseover="hover1= true" ng-mouseleave="hover1= false">Gyahar!</h2> -->
+        
+        <footer>
+            
+        </footer>
+    </body>
+    
+</html>

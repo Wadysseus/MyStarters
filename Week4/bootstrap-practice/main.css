@@ -1,0 +1,16 @@
+.navbar-header{
+    color: #eee;
+    font-size: 32px;
+    margin-left: 15px;
+}
+
+.navbarContainer{
+    width:80%;
+    margin-right:15px;
+    margin-left:15px;
+}
+
+.headContainer{
+    width: 960px;
+    display:block;
+}

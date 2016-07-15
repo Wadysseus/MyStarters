@@ -1,0 +1,37 @@
+<html ng-app="clickTracker">
+    
+
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="main.css">
+        
+        <title>Intro to Angular</title>
+    </head>
+    <body ng-controller="trackThemClicks as trackClick">
+        <header>
+            
+        </header>
+        <section >
+            <button id="datButton" type="button" class="btn btn-primary doseButtons" ng-click="trackClick.count()" ng-init="trackClick.clickCounter=0">CLICKY</button>
+            <p>Clicky county: {{trackClick.clickCounter}}</p>
+            <h1>{{trackClick.welcomeMessage}}</h1>
+        <div ng-controller="trackListClicks as listClick">
+            <p><button type="button" class="btn btn-primary doseButtons" ng-click="listClick.count()" ng-init="listClick.clickCounter=0">OTHER CLICKY</button></p>
+            <p>Other Clicky county: {{listClick.clickCounter}}</p>
+                <ul>
+                    <li>{{listClick.firstItem}}</li>
+                    <li>{{listClick.secondItem}}</li>
+                    <li>{{listClick.thirdItem}}</li>
+                </ul>
+        </div>
+        </section>
+        
+        <footer>
+            
+        </footer>
+    </body>
+    
+</html>

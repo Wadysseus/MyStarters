@@ -1,0 +1,55 @@
+<html ng-app="MouseHQ">
+    
+
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        <script type="text/javascript" src="main2.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="main2.css">
+        
+        <title>Intro to Angular: Part Deux</title>
+    </head>
+    
+    <body class="container">
+        
+        <header>
+            <h1>Intro to Angular: Part Deux</h1>
+        </header>
+        
+        <section ng-controller="wheresMouse as trackMouse" >
+            
+            <h2 ng-class="{pink: hover1}" ng-mouseover="hover1= true" ng-mouseleave="hover1= false">Gyahar!</h2>    
+            <p ng-class="{pink: hover2}" ng-mouseover="hover2= true" ng-mouseleave="hover2= false">Gold Road hogshead scuppers long clothes clipper crow's nest lad rum yardarm chase. Barkadeer scallywag belay deadlights fire ship galleon swab hempen halter me prow. Rutters Sail ho run a shot 
+            across the bow mizzenmast nipper Jack Bonnie fathom hulk cog list.</p>
+            <p ng-class="{pink: hover3}" ng-mouseover="hover3= true" ng-mouseleave="hover3= false">Shrouds jack schooner pirate nipper chase guns bring a spring upon her cable boom barkadeer Barbary Coast. Jib Chain Shot crow's nest clipper reef crack Jennys tea cup dance the hempen jig chase
+            guns pressgang aye. Hang the jib pillage parley Spanish Main no prey, no pay line lugsail execution dock Barbary Coast black jack.</p>
+            <p ng-class="{pink: hover4}" ng-mouseover="hover4 = true" ng-mouseleave="hover4 = false">Fire ship code of conduct careen Chain Shot capstan gunwalls Sink me warp driver Plate Fleet. Smartly flogging hogshead clap of thunder plunder hearties rum come about provost driver. Coxswain 
+            yo-ho-ho Yellow Jack come about topmast tack hulk gangplank hands interloper.</p>
+            <p><a ng-click="showConfirm()" confirm="You are about to leave this site to go to the Pirate Name Generator. Click OK or cancel, matey!" href="http://gangstaname.com/names/pirate">Become a pirate!</a>
+       </p>
+        </section>
+        
+        <section>
+            
+            <h2>Avast!</h2>
+
+            <nav>
+                <ul>
+                    <li><button class="btn btn-primary pirateButtons btn-lg" ng-click="tChk.linkOne = !tChk.linkOne">Here be a link!</button></li>
+                    <li><button class="btn btn-primary pirateButtons btn-lg" ng-click="tChk.linkTwo = !tChk.linkTwo">Be there treasure here!?</button></li>
+                    <li><button class="btn btn-primary pirateButtons btn-lg" ng-click="tChk.linkThree = !tChk.linkThree">Landlubbers beware this link!</button></li>
+                </ul>
+                
+
+                
+            </nav>
+            
+        </section>
+        
+        <footer>
+            
+        </footer>
+    </body>
+    
+</html>

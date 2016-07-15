@@ -4,19 +4,62 @@
 // any number of people?
 // - Repeat steps 1 and 2, but this time you are asking for volunteers. You'll need a separate set of arrays.
 
-var victimNumber = prompt("How many folks are messed up?")
-countVictims(victimNumber)
-function countVictims(numberEntries){
-    for (var numberEntries = 0; numberEntries < numberEntries -1 ; numberEntries++){
+
+
+function countVictims(){
+    var victimNumber = prompt("How many humans are injured?");
+    var numberEntries = victimNumber;
+    for (var i = 0; i < numberEntries; i++){
         folksToHelp();
     }
 }
 
-function folksToHelp(attributes) {      // info constructor
-    this.name = attributes.name
-    this.phone = attributes.phone
-    this.address = attributes.address
+var victimNameArray = [];
+var victimPhoneArray = [];
+var victimAddressArray = [];
+
+function folksToHelp() {
+    var victimName = prompt("What's this human's name?");
+    victimNameArray.push(victimName);
+    var victimPhone = prompt("What's this human's phone number?");
+    victimPhoneArray.push(victimPhone);
+    var victimAddress = prompt("What's this human's address?");
+    victimAddressArray.push(victimAddress);
 }
+
+countVictims();
+console.log(victimNameArray);
+console.log(victimPhoneArray);
+console.log(victimAddressArray);
+
+
+
+function countVolunteers(){
+    var volunteersNumber = prompt("How many humans wish to volunteer?");
+    var numberEntries = volunteersNumber;
+    for (var i = 0; i < numberEntries; i++){
+        folksWhoHelp();
+    }
+}
+
+var volNameArray = [];
+var volPhoneArray = [];
+var volAddressArray = [];
+
+function folksWhoHelp() {
+    var volName = prompt("What's this volunteer's name?");
+    volNameArray.push(volName);
+    var volPhone = prompt("What's this volunteer's phone number?");
+    volPhoneArray.push(volPhone);
+    var volAddress = prompt("What's this volunteer's address?");
+    volAddressArray.push(volAddress);
+}
+
+countVolunteers();
+console.log(volNameArray);
+console.log(volPhoneArray);
+console.log(volAddressArray);
+
 
 // function HumanUnit(attributes) {
 //     // constructor functions leverage a special keyword: `this`
@@ -27,12 +70,6 @@ function folksToHelp(attributes) {      // info constructor
 //     this.weight = attributes.weight
 //     this.origin = 'Earth'
 // }
-
-
-// helpingFolks(victimNumber)
-
-
-
 
 
 // Trying to model it off var Units below
@@ -62,3 +99,15 @@ function folksToHelp(attributes) {      // info constructor
 
 
 
+//       _==/           i     i           \==_
+//      /XX/            |\___/|            \XX\
+//    /XXXX\            |XXXXX|            /XXXX\
+//   |XXXXXX\_         _XXXXXXX_         _/XXXXXX|
+//  XXXXXXXXXXXxxxxxxxXXXXXXXXXXXxxxxxxxXXXXXXXXXXX
+// |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// |XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|
+//  XXXXXX/^^^^"\XXXXXXXXXXXXXXXXXXXXX/^^^^^\XXXXXX
+//   |XXX|       \XXX/^^\XXXXX/^^\XXX/       |XXX|
+//     \XX\       \X/    \XXX/    \X/       /XX/
+//        "\       "      \X/      "       /"

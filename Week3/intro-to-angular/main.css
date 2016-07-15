@@ -1,0 +1,18 @@
+html {
+    background-color: black;
+}
+
+body {
+    width:960px;
+    margin: auto;
+    background-color: aliceblue;
+}
+
+.doseButtons{
+    margin: 5px;
+}
+
+#datButton{
+    background-color:burlywood;
+    color: aliceblue;
+}

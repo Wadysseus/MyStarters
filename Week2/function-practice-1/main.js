@@ -24,7 +24,8 @@
 // function lastLetter(string)
 // {
 //     var lastChar = string.slice(-1);
-//     console.log(lastChar)
+//     return lastChar;
+// return string[string.length-1];  // simpler way of doing this
 // }
 
 // lastLetter()
@@ -39,7 +40,7 @@
 
 // function square(x) {
 //     var product = x * x;
-//     console.log(product);
+//     return product;
 // }
 
 // square()
@@ -68,7 +69,7 @@
 
 // function negate(x) {
 //     var difference = x - (2 * x);
-//     console.log(difference);
+//     return difference;
 // }
 
 // negate()
@@ -84,6 +85,7 @@
 // function toArray(x, y, z){
 //     var thisArray = [x, y, z];
 //     return thisArray;
+// ALTERNATE VICTORY -    return [x, y, z];
 // }
 
 // toArray()
@@ -97,7 +99,7 @@
 // EXERCISE COMPRETE - but come back and fix it with .toLowerCase() if you have time
 
 // function startsWithA(string) {
-//     if(string.charAt(0) == "a"){
+//     if(string.charAt(0) == "a" || string.charAt(0) == "A"){
 //         return true;
 //     }
 //     else{
@@ -166,8 +168,13 @@
 //     - getSeconds('10:25') should return 625
 
 
-function getSeconds(MM:SS){
-    
+function getSeconds(time){
+    var timeMaster = time.split(':');  // : is the delimiter 
+    var minutes = timeMaster[0] * 60;
+    var seconds = timeMaster[1] * 1;
+    return minutes + seconds;
+    // var segments = time.split(':');
+    // segments[0]*1*60+segments[1]*1;
 }
 
 

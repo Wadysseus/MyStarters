@@ -1,0 +1,64 @@
+<html ng-app="CakeApp">
+    <head>
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+         <script type="text/javascript" src="app.js"></script>
+         <script type="text/javascript" src="app.controller.menu.js"></script>
+         <script type="text/javascript" src="app.controller.pos.js"></script>
+         <script type="text/javascript" src="app.factory.cheesecake.js"></script>
+         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+         <link rel="stylesheet" href="main.css">
+         
+         <style>
+             .form-control {
+                 margin-top: 5px 0;
+             }
+         </style>
+    </head>
+    
+    <header>
+        <nav>
+            <div class="topNav">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/20/Breath_of_Fire_characters.jpg">
+                <h1 class="titleSprawl">Check Out Mah Factory!</h1>
+            </div>
+        </nav>
+    </header>
+    <body class="container">
+        <section ng-controller="MenuController as Menu">
+            <h2>{{ Menu.title }}</h2>
+            <!--<fieldset class="row">-->
+            <!--<input type="text" class="form-control" placeholder="Search" ng-model="Menu.search">-->
+            <!--</fieldset>-->
+            <!--<ul>-->
+            <!--    <li ng-repeat="item in Menu.items | orderBy: '-calories' | filter:Menu.search">-->
+                    <!--Using a filter in an expression: {{ value | builtInFilterFunction }}-->
+            <!--        {{ item.name }} - <strong>{{ item.price | currency }}</strong>, calories: {{ item.calories }}-->
+            <!--    </li>-->
+            <!--</ul>-->
+            
+            <!--<ul>-->
+            <!--    <li ng-repeat="item in Menu.items | filter:  Menu.lowCalories">-->
+                    <!-- For each item in this ng-repeat, we are calling Menu.lowCalories -->
+                    <!--Custom filter-->
+            <!--        {{ item.name }} - <strong>{{ item.price | currency }}</strong>, calories: {{ item.calories }}-->
+            <!--    </li>-->
+            <!--</ul>-->
+            
+            <ul>
+                <!-- Ordering a list  -->
+                <li ng-repeat="item in Menu.items | orderBy:  '-calories' ">
+                    {{ item.name }} - <strong>{{ item.price | currency }}</strong>, calories: {{ item.calories }}
+                </li>
+            </ul>
+            
+        </section>
+        
+        <div ng-controller="MenuOrderController as menuOrder">
+            <button class="btn btn-primary" ng-click="MenuOrder.removeLastItem()">Remove Last Item</button>
+        </div>
+    
+        <footer>
+        
+        </footer>
+    </body>
+</html>
