@@ -1,4 +1,4 @@
-<html>
+<html ng-app="agendaScroll">
     
 
     <head>
@@ -8,10 +8,15 @@
     </head>
     <body>
         <header>
-            <script src="main.js"></script>
+            <h1>Wutta Calendar!</h1>
         </header>
-        <section>
-            
+        <section ng-controller="agendaPalette as pCtrl">
+            <ul>
+                <li ng-repeat="for dates in dateMe">{{dates.date}}</li>
+                <li ng-repeat="for dates in dateMe">{{dates.apptName}}</li>
+                <li ng-repeat="for dates in dateMe">{{dates.apptTime}}</li>
+                <li ng-repeat="for dates in dateMe">{{dates.apptText}}</li>
+            </ul>
         </section>
         
         <footer>

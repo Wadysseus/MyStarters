@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="KittyCrawler">
+    
+    <head>
+        
+        <script type= "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        <script src="js/main.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Gravitas+One' rel='stylesheet' type='text/css'>
+        <title>Crypt of Feline Fright</title>
+    </head>
+    <!--<div class="gameContainer">-->
+    <header class="cryptBanner">
+        <img src="http://piq.codeus.net/static/media/userpics/piq_20217_400x400.png">
+        <h1>Welcome to the Crypt of Feline Fright!</h1>
+        <img id="secondLightning" style="margin-left:25px" src="http://piq.codeus.net/static/media/userpics/piq_20217_400x400.png">
+    </header>
+    <body ng-controller="kittyHQ as kNew">
+        
+        <h2 style="text-align: center">Create your first Catventurer!</h2>
+        
+        <p class="minorIndent"><input style="width: 250px;" type="text" placeholder="Choose your Kitty Adventurer's name" ng-model="kNew.name"></p>
+        <p class="minorIndent"><input type="radio" name="breed" value="siamese" ng-model="kNew.breed"> <b>Siamese</b> - Agile, hunter-killers.<br>
+        <input type="radio" name="breed" value="maineCoon" ng-model="kNew.breed"> <b>Maine Coon</b> - Big, friendly giants.<br>
+        <input type="radio" name="breed" value="tabby" ng-model="kNew.breed"> <b>Tabby</b> - Well-rounded and adorable.<br>
+        </p>
+        
+        <!--<tr ng-repeat="technology in technologies">-->
+        <!--Example ng-click:  ng-click="incrementLikes(technology)-->
+        
+        <div class="siameseColors minorIndent" ng-show="kNew.breed=='siamese'">
+        <p>
+            <h4>Fur Color</h4>
+            <input type="radio" name="siamColor" value="grayAndBlack" ng-model="kNew.color">Gray and Black<br>
+        </p>
+        </div>
+        
+        <div class="maineCoonColors minorIndent" ng-show="kNew.breed=='maineCoon'">
+            <p>
+            <h4>Fur Color</h4>
+            <input type="radio" name="maineCoonColor" value="blue" ng-model="kNew.color">Blue<br>
+            <input type="radio" name="maineCoonColor" value="black" ng-model="kNew.color">Black<br>
+            <input type="radio" name="maineCoonColor" value="calico" ng-model="kNew.color">Calico<br>
+            </p>
+        </div>
+        
+        <div class="tabbyColors minorIndent" ng-show="kNew.breed=='tabby'">
+            <p>
+            <h4>Fur Color</h4>
+            <input type="radio" name="tabbyColor" value="orange" ng-model="kNew.color">Orange<br>
+            <input type="radio" name="tabbyColor" value="brown" ng-model="kNew.color">Brown<br>
+            <input type="radio" name="tabbyColor" value="white" ng-model="kNew.color">White<br>
+            </p>
+        </div>
+        <div class="minorIndent" ng-show="kNew.color">
+                <button type="button" class="btn btn-success" style="margin-bottom:5px" ng-click="kNew.submit">Start my Catventure!</button>
+        </div>
+    </body>
+    <!--</div>-->
+</html>

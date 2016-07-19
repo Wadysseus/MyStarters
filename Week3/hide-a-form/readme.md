@@ -27,4 +27,5 @@ Requirements
 Bonus
 --------
 
-Add an 'auto-save' feature: Remove the submit button, and add 'input' event handlers to the input elements to update the user's profile immediately when any value in the form changes.
+Add an 'auto-save' feature: Remove the submit button, and add 'input' event handlers to the input elements to update the user's profile immediately when any value in 
+the form changes.

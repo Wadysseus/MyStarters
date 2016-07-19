@@ -1,0 +1,49 @@
+html {
+    background-color: #aaa;
+    width: 1350px;
+}
+
+.gameContainer {
+    margin: auto;
+    width: 1350px;
+    height: 100%;
+}
+
+.cryptBanner {
+    background-color: black;
+    height: 200px;
+    width: 95%;
+    margin: auto;
+}
+
+.cryptBanner h1{
+    color: white;
+    display:inline-block;
+    font-family: 'Gravitas One', cursive;
+    font-size: 22px;
+   }
+
+.cryptBanner img {
+    height: 200px;
+    display:inline-block;
+}
+
+ 
+body {
+    background-color: AntiqueWhite;
+    width: 80%;
+    margin: auto;
+}
+
+.minorIndent {
+    margin-left: 5px;
+}
+
+#secondLightning {
+    -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}

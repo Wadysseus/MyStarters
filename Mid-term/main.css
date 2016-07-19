@@ -1,0 +1,36 @@
+html {
+    background-color: #eee;
+}
+
+body {
+    width: 1250px;
+    background-color: AntiqueWhite;
+    margin: auto;
+}
+
+.wadeBtn{
+    color: white;
+    margin: 5px;
+    
+}
+
+.navLineUp {
+    display: inline-block; /* Not functional because of overriding bootstrap class? */
+}
+
+.Jumbotron {
+    background-image: url("https://pixabay.com/static/uploads/photo/2016/07/07/16/46/roll-the-dice-1502706_960_720.jpg");
+    /*background-image: url("http://vignette1.wikia.nocookie.net/merp/images/2/2e/Moria1.jpg/revision/latest?cb=20121022232343");*/
+    color: white;
+    height: inherit;
+}
+
+.jumboContainer h1 {
+    opacity: 1;
+}
+
+.jumboContainer {
+    background-color: AntiqueWhite;
+    opacity: 0.32;
+    height: 100%;
+}

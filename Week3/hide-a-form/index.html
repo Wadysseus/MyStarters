@@ -1,26 +1,47 @@
 <html ng-app="FormStorm">
     
-    <header>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <head>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
         <script type="text/javascript" src="main.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="main.css">
         <title>Hide-a-Form Exercise</title>
-    </header>
-    
-    <head ng-controller="formTroller as pkBtn">
-        <div>
-            <button type="button" class="btn btn-primary" id="displacerButton" ng-click="pkBtn.appear" ng-init="pkBtn.appearStatus=false">{{pkBtn.buttonMessage}}</button>
-        </div>
         
     </head>
     
-    <body>
+    <body ng-controller="peekaButton as pkBtn">
         
-        <section>
-            
-        </section>    
+         <div>
+            <button type="button" class="btn btn-primary" id="displacerButton" ng-click="pkBtn.appear = !pkBtn.appear" ng-init="pkBtn.appearStatus=false">{{pkBtn.buttonMessage}}</button>
+        </div>
+        <div>
+            <ul>
+                <li><h3>Name: </h3>{{pkBtn.nameInput}}</li>
+                <li><h3>Bio: </h3>{{pkBtn.bioInput}}</li>
+                <li><h3>Books I Like: </h3>{{pkBtn.booksInput}}</li>
+                <li><h3>JavaScript Libraries: </h3>{{pkBtn.liberryInput}}</li>
+            </ul>
+        </div>
+        
+        <div ng-init="pkBtn.appear = false" ng-show="pkBtn.appear" class="slideFrame"> 
+            <h1 style="text-align:center">Enter Your Info</h1>
+            <input type="form" class="slideForms" placeholder="Whassyername?" ng-model="pkBtn.nameInput"></input>
+            <input type="form" class="slideForms" placeholder="Tell us boutchyerself." ng-model="pkBtn.bioInput"></input>
+            <input type="form" class="slideForms" placeholder="Favorite dead tree scrolls?" ng-model="pkBtn.booksInput"></input>
+            <input type="form" class="slideForms" placeholder="List yer nerdy JavaScript interests right hyah" ng-model="pkBtn.liberryInput"></input>
+        </div>
+        
+        <!--<div ng-controller="ExampleController">-->
+        <!--  <form>-->
+        <!--    Name:-->
+        <!--    <input type="text" ng-model="user.name" ng-model-options="{ updateOn: 'blur' }" /><br />-->
+        <!--    Other data:-->
+        <!--    <input type="text" ng-model="user.data" /><br />-->
+        <!--  </form>-->
+        <!--  <pre>username = "{{user.name}}"</pre>-->
+        <!--  <pre>userdata = "{{user.data}}"</pre>-->
+        <!--</div>-->
         
     </body>
     

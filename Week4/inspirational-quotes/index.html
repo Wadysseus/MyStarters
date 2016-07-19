@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="QuoteApp">
+    
+    <head>
+        <!--Grabbing jQuery because Bootstrap JS depends on it-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!--leaving protocol off asset will allow browser to prepend correct protocol for you-->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="css/main.css">
+        <script src="main.js"></script>
+    </head>
+    
+    <header>
+        
+    </header>
+    
+    <body ng-controller="quoteControl as qCtrl">
+        <input ng-model = "qCtrl.author" ng-show="qCtrl.submitShow" placeholder="Quote author">
+        <div ng-show="!qCtrl.submitShow">{{qCtrl.author}} - "{{qCtrl.quote}}"</div>
+        </input>
+        <input ng-model = "qCtrl.quote" ng-show = "qCtrl.submitShow" placeholder="Quote text"></input>
+        <button ng-click="qCtrl.submitShow = false" ng-show="qCtrl.submitShow">Submit Quote</button>
+    </body>
+    
+   <!--         <img class="marker-img" ng-mouseenter="marker.hovered = true" ng-mouseleave="marker.hovered=false" ng-src="http://vignette3.wikia.nocookie.net/terraria/images/9/95/GoldCoin_Small.gif/revision/latest?cb=20150710110619" ng-show="marker.show" ng-click="marker.show = false">-->
+			<!--<textarea ng-model="marker.note" ng-show="marker.submitShow"></textarea>-->
+			<!--<button ng-click="marker.submitShow = false" ng-show="marker.submitShow">Save</button>-->
+			<!--<p ng-bind="marker.note" ng-show="marker.hovered" ></p>-->
+    
+    
+    
+</html>

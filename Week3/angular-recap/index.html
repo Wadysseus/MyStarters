@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html ng-app="WeddingBells">
+    <!--sCrypt Keeper-->
+    <head>
+        <title>Angular Recap</title>
+        
+        <!--bootstrap.js depends on jQuery, so it goes first-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+        
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!--leaving protocol off asset will allow browser to prepend correct protocol for you-->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+        <!--angular app file-->
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    
+    <body class="container">
+        <!--ballAndChain maps to the string in our controller declaration in main.js-->
+        <!--MUST BE SPELLED THE SAME-->
+        <div ng-controller="ballAndChain as love">
+            <div ng-repeat="couple in love.info">
+            <h1> {{ couple.year }}, duration: {{couple.duration }}</h1>
+            <table class="table table-striped" ng-repeat="spouses in couple.spouses">
+                <!--<caption>This would be the table title = U.S. Divorce Rates</caption>-->
+                <thead>
+                    <tr>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Occupation</th>
+                    <th>Education</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{spouses.age}}</td>
+                        <td>{{spouses.gender}}</td>
+                        <td>{{spouses.occupation}}/td>
+                        <td>{{spouses.education}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    
+                </tfoot>
+            </table>
+            </div>
+        </div>
+    </body>
+    
+</html>

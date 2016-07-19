@@ -1,16 +1,51 @@
-.navbar-header{
-    color: #eee;
-    font-size: 32px;
-    margin-left: 15px;
+.jumboContainer{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.navbarContainer{
-    width:80%;
-    margin-right:15px;
-    margin-left:15px;
+.navbarContainer {
+    background-color: black;
+    height: 51px;
+    width: 100%;
 }
 
-.headContainer{
-    width: 960px;
-    display:block;
+.navbar a {
+    color: #aaa;
+    font-size: 22px;
 }
+
+.navbar li {
+    display: inline-block;
+}
+
+.navLogIn {
+    text-align: right;
+}
+
+.Jumbotron h1, h4, button{
+    margin-left: 30px;
+
+}
+
+.Jumbotron {
+    padding: 48px 0;
+}
+
+.navLogIn {
+    
+}
+
+#dammitButton {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    border-radius: 5px;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/*.navbar button {*/
+/*    color: white;*/
+/*}*/
