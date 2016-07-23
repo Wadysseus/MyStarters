@@ -19,8 +19,10 @@ html {
 .cryptBanner h1{
     color: white;
     display:inline-block;
-    font-family: 'Gravitas One', cursive;
-    font-size: 22px;
+    font-family: 'Niconne', cursive;
+    /*font-family: 'Gravitas One', cursive;*/
+    /*font-family: 'Lora', serif;*/
+    font-size: 40px;
    }
 
 .cryptBanner img {
@@ -46,4 +48,15 @@ body {
         transform: scaleX(-1);
         filter: FlipH;
         -ms-filter: "FlipH";
+}
+
+
+#worldDisplay {
+    height: 40vh;
+    width: 60vw;
+}
+
+#uiField {
+    height: 15vh;
+    width: 60vw;
 }

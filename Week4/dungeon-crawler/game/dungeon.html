@@ -1,0 +1,36 @@
+<div class="row"></div>
+    <div ng-if="kCtrl.party" id="partyDisplay" class="col-xs-12">
+        <div class="col-xs-12">
+            <span class="pull-right">{{kCtrl.party[0].name}}</span>
+        </div>
+    </div>
+</div>
+
+            <!--<div class="row">-->
+
+                <!--Player Info-->
+            <!--    <div ng-if="dCtrl.currentPlayer" id="playerInfo" class="col-xs-12">-->
+            <!--        <div class="row">-->
+            <!--            <div class="col-xs-12">-->
+            <!--                <span class="pull-right">{{dCtrl.currentPlayer.name}}</span>-->
+            <!--            </div>-->
+            <!--            <div class="col-xs-12">-->
+            <!--                <span class="pull-right">{{dCtrl.currentPlayer.class}}</span>-->
+            <!--            </div>-->
+            <!--            <div class="col-xs-12">-->
+            <!--                <span class="pull-right">{{dCtrl.currentPlayer.hp}} / 100</span>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+
+
+<div id="worldDisplay">
+    <!--Here I'll put the UI display. Room description, mobs, exits.-->
+    <h1 style="text-align: center">Yes, This is Dungeon</h1>
+    <p> Description: {{ kCtrl.currentRoom }}</p>
+</div>
+
+<div id="uiField">
+    <h2 style="text-align: center">Input or control buttons here</h2>
+    <!--Here will be the UI input, with either buttons or a text input-->
+</div>

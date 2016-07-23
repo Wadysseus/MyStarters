@@ -1,0 +1,14 @@
+html {
+    background-color: #aaa;
+}
+
+body {
+    background-color: #fff;
+    width: 1350px;
+    margin: auto;
+}
+
+.Jumbotron {
+    background-image: url("https://images4.alphacoders.com/384/38476.jpg");
+    opacity: 0.3;
+}
