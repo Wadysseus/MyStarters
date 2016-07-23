@@ -43,7 +43,7 @@ angular.module('KittyCrawler')
             kNew.meowType = 'adorably';
         }
         party.push(this);
-    } //end of kittyCreator
+    } 
 
     // kittyCreator prototypes
 
@@ -68,12 +68,17 @@ angular.module('KittyCrawler')
         console.log(target.desc);
     };
 
+    // Whiskers, smell, hearing -- use these
+    // Also have a point where you 'land on your feet'
+
     kittyCreator.prototype.get = function(target){
         console.log(this.name + " picks up the " + target.name + ".");
         this.inventory.push(target);
     };
 
     // End of kittyCreator prototypes
+    
+    //end of kittyCreator ======================================================
 
     // Monster constructor
     function mobCreator (mobInfo){
@@ -83,12 +88,12 @@ angular.module('KittyCrawler')
         this.attackDesc = mobInfo.attackDesc;
         this.desc = mobInfo.desc;
         mobs.push(this);
-    } //end of mobCreator
+    } 
     
     
-    
+    // General monster attack function
     mobCreator.prototype.attackParty = function(party){
-        var monsterTarget = party[Math.floor(Math.random() * party.length)];
+        var monsterTarget = party[Math.floor(Math.random() * party.length)]; //Randomly selects party member to attack
         console.log(monsterTarget);
         console.log(this.name + this.attackDesc);
         var dmg = [Math.ceil(Math.random() * this.attack)];
@@ -103,21 +108,7 @@ angular.module('KittyCrawler')
         'Spoopy Skeltarcher',
         'Potted Petunia'];
         
-    // THIS NO WORK mobCreator.mobInfo.hp = if(mobCreator.mobInfo.name == 'Undead Mouseketeer')
-        
-        // var weakMobsHP = [{
-        //     undeadMouseketeer = 15 +/- 5,
-        //     spoopySkeltal = 20 +/- 5,
-        //     spoopySkeltarcher = 10 +/- 2,
-        //     pottedPetunia = 35 +/- 10
-        // }]
-        
-        // var weakMobsATK = [{
-        //     undeadMouseketeer = 7 +/- 3,
-        //     spoopySkeltal = 6 +/- 2,
-        //     spoopySkeltarcher = 8 +/- 4,
-        //     pottedPetunia = 2 +/- 1
-        // }]
+
         
     var mediumMobs = [
         'Sentient Vacuum Cleaner',
@@ -129,17 +120,25 @@ angular.module('KittyCrawler')
         'Catnip Dragon',
         'Spritz Warlock'
         ];
+        
+        //end of mobCreator ====================================================
+        
+        
     
     // Room constructor
     function zoneCreator (zoneInfo){
         this.name = zoneInfo.name;
         this.desc = zoneInfo.desc;
         this.exits = [];
+        this.mobs = zoneInfo.mobs;
+        
         // this.mob = mobs[i]; // I'm sure this is not the way to do this.
         // this.decor = decor[i]; // Again, probably not the way to do this.
         zones.push(this);
     }// end of Room constructor
     
+    
+    // Item constructor
     function itemCreator (itemInfo){
         this.name = itemInfo.name;
         this.desc = itemInfo.desc;
@@ -147,13 +146,14 @@ angular.module('KittyCrawler')
         this.effect = itemInfo.effect;
         this.equip = false;
         items.push(this);
-    }
+    } //end of item constructor
     
+    //decor constructor
     function decorCreator (decorInfo){
         this.name = decorInfo.name;
         this.desc = decorInfo.desc;
         decor.push(this);
-    }
+    }// end of decor constructor
     
     return {
         
