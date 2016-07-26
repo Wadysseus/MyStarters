@@ -28,6 +28,12 @@ html {
 .cryptBanner img {
     height: 200px;
     display:inline-block;
+    -webkit-animation: blink 1s;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation: blink 1s;
+    -moz-animation-iteration-count: 1;
+    -o-animation: blink 1s;
+    -o-animation-iteration-count: 1;
 }
 
  
@@ -50,7 +56,18 @@ body {
         -ms-filter: "FlipH";
 }
 
+/* Party Display*/
+#partyDisplay {
+    width: 20vw;
+    height: 30vh;
+}
 
+.healthBub {
+    background-color: chartreuse;
+    border: 1px solid black;
+}
+
+/*End of Party Display*/
 #worldDisplay {
     height: 40vh;
     width: 60vw;
@@ -61,4 +78,87 @@ body {
     height: 15vh;
     width: 60vw;
 
+}
+
+#uiField select {
+    width: 120px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.wireFrame {
+    border: red solid 1px;
+}
+
+
+
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+  20%{
+    opacity: 0;
+  }
+    60% {
+        opacity: 1;
+    }
+  70% {
+    opacity: 0;
+  }
+  80%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 0;
+  }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes blink{
+   0% {
+        opacity: 1;
+    }
+  10%{
+    opacity: 0;
+  }
+    60% {
+        opacity: 1;
+    }
+  70% {
+    opacity: 0;
+  }
+  80%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 0;
+  }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes blink {
+  0% {
+        opacity: 1;
+    }
+  10%{
+    opacity: 0;
+  }
+    60% {
+        opacity: 1;
+    }
+  70% {
+    opacity: 0;
+  }
+  80%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 0;
+  }
+    100% {
+        opacity: 1;
+    }
 }

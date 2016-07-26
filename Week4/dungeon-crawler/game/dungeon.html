@@ -1,33 +1,50 @@
-<div class="row">
+<div class="row wireFrame pull-right">
     <div ng-if="kCtrl.redLeader" id="partyDisplay" class="col-xs-12">
-        <div class="col-xs-12">
-            <span class="pull-right">Party Leader: {{kCtrl.redLeader.name}}</span>
+        <div class="row wireFrame">
+            <div class="col-xs-12">
+                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redLeader.name}}</span>
+            </div>
+            <div class="col-xs-12 wireFrame">
+                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{::kCtrl.redLeader.hp}}</span>
+            </div>
+            <div class="col-xs-12 wireFrame">
+                <span class="pull-right"><b>Class:</b> {{kCtrl.redLeader.class}}</span>
+            </div>
+        </div>
+    </div>
+    <div ng-if="kCtrl.redTwo" id="partyDisplay" class="col-xs-12">
+        <div class="row wireFrame">
+            <div class="col-xs-12">
+                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redLeader.name}}</span>
+            </div>
+            <div class="col-xs-12 wireFrame">
+                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{::kCtrl.redLeader.hp}}</span>
+            </div>
+            <div class="col-xs-12 wireFrame">
+                <span class="pull-right"><b>Class:</b> {{kCtrl.redLeader.class}}</span>
+            </div>
+        </div>
+    </div>
+        <div ng-if="kCtrl.redThree" id="partyDisplay" class="col-xs-12">
+        <div class="row wireFrame">
+            <div class="col-xs-12">
+                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redLeader.name}}</span>
+            </div>
+            <div class="col-xs-12 wireFrame">
+                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{::kCtrl.redLeader.hp}}</span>
+            </div>
+            <div class="col-xs-12 wireFrame">
+                <span class="pull-right"><b>Class:</b> {{kCtrl.redLeader.class}}</span>
+            </div>
         </div>
     </div>
 </div>
 
-            <!--<div class="row">-->
-
-                <!--Player Info-->
-            <!--    <div ng-if="dCtrl.currentPlayer" id="playerInfo" class="col-xs-12">-->
-            <!--        <div class="row">-->
-            <!--            <div class="col-xs-12">-->
-            <!--                <span class="pull-right">{{dCtrl.currentPlayer.name}}</span>-->
-            <!--            </div>-->
-            <!--            <div class="col-xs-12">-->
-            <!--                <span class="pull-right">{{dCtrl.currentPlayer.class}}</span>-->
-            <!--            </div>-->
-            <!--            <div class="col-xs-12">-->
-            <!--                <span class="pull-right">{{dCtrl.currentPlayer.hp}} / 100</span>-->
-            <!--            </div>-->
-            <!--        </div>-->
-            <!--    </div>-->
 
 
-<div id="worldDisplay">
+<div class ="wireFrame" id="worldDisplay">
     <!--Here I'll put the UI display. Room description, mobs, exits.-->
     <h1 style="text-align: center">{{kCtrl.currentRoom.name}}</h1>
-    <p>Player: {{kCtrl.redLeader.name}}</p>
     <p ng-repeat="descs in kCtrl.currentRoom.desc">{{ descs }} </p>
     
     <p>Monsters are<b ng-repeat="mob in kCtrl.currentRoom.mobs track by $index"> - {{mob.name}}</b></p>
@@ -35,15 +52,17 @@
     <p>Exits are<em ng-repeat="exit in kCtrl.currentRoom.exits"> - {{ exit }} </em></p>
 </div>
 
-<div id="uiField">
+<div class ="wireFrame" id="uiField">
     <h2 style="text-align: center">Input or control buttons here</h2>
         <select class="form-control" id="roomExamine">  
             <option>Examine</option>
+            <option ng-repeat="member in kittyFactory.party">{{member.name}}</option>
             <!--<option ng-repeat="stuff in kCtrl.currentRoom.decor">{{stuff}}</option>-->
         </select>
     
         <select class="form-control" id="roomInteract">  
             <option>Interact</option>
+            <option>Meow</option>
             <!--<option ng-repeat="mcGuffins in kCtrl.currentRoom.interact">{{mcGuffins}}</option>-->
         </select>
     

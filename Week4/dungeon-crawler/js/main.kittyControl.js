@@ -164,7 +164,7 @@ function kittyControl (kittyFactory, $location) {
         name  : "Entrance to the Crypt",
         desc  : ["You stand before the imposing brass doors of the Crypt of Feline Frights. Ivy crawls across the dilapidated walls, descending into the darkness beyond the crumble of mortar. You can pick out debris from the ruins of whatever temple once stood here with your superior feline vision, but the Crypt itself is the only structure to endure the ravages of time.", "The trip here from Blun, the closest town, was quiet, with only scant signs of local fauna. Now that you’re at the Crypt, you see and smell no signs of other living creatures. The Crypt itself almost seems to suck in sound, and you get the vague impression that on a frequency just beyond your hearing, this place roars its malintent to the world of the living."],
         exits : ['South'],
-        mobs  : [weakMob, weakMob2]
+        mobs  : [weakMob]
     });
     kCtrl.room0 = entry0;
     
@@ -173,7 +173,7 @@ function kittyControl (kittyFactory, $location) {
         name  : "Entrance to the Crypt",
         desc  : ["Light and fresh air pour into the Crypt for the first time in an age. Profligate cobwebs adorn the walls and ceiling, and your nose wrinkles as the stench of decomposition wafts from beyond the hall. Sconces line the walls, some still hold unlit torches, though the wood is no doubt rotten at this point. Luckily, with your superior feline senses, you’re not hindered the way a lesser being might be.", "Sepulchral beds line the walls, carved alcoves whose inhabitants are little more than dust and bones. An oaken door is set into an alcove on the eastern wall, and the hall continues to the south. Your whiskers twitch. You’re not alone..."],
         exits : ['East','South'],
-        mobs  : [weakMob]
+        mobs  : [weakMob, weakMob2]
     });  
 
     var cryptKeeper2 = new kittyFactory.zoneCreator ({
