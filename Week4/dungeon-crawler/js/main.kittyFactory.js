@@ -23,7 +23,10 @@ angular.module('KittyCrawler')
     this.lives = 9;
     this.inventory = [ ];
     this.class = 'Catventurer';
-    this.desc = "You examine yourself. You're looking purrty good! You are {{catInfo.name}}, the {{catInfo.breed}} {{catInfo.class}}! Your fur is {{catInfo.color}} and {{catInfo.furLength}} in length. You have {{catInfo.lives}} lives left, and you could really go for a can of tuna.";
+    this.desc = "You examine yourself. You're looking purrty good! You are {{kCtrl.redLeader.name}}, the {{kCtrl.redLeader.breed}} {{kCtrl.redLeader.class}}! Your fur is {{kCtrl.redLeader.color}} and {{kCtrl.redLeader.furLength}} in length. You have {{kCtrl.redLeader.lives}} lives left, and you could really go for a can of tuna.";
+        
+        // will need to refactor these if statements into something like var catBreedTraits
+        
         if (kNew.breed == 'siamese'){
             kNew.attack = 10;
             kNew.hp = 50;
@@ -86,6 +89,7 @@ angular.module('KittyCrawler')
         this.hp = mobInfo.hp;
         this.attack = mobInfo.attack;
         this.attackDesc = mobInfo.attackDesc;
+        this.atkMod = 0;
         this.desc = mobInfo.desc;
         mobs.push(this);
     } 
@@ -96,7 +100,7 @@ angular.module('KittyCrawler')
         var monsterTarget = party[Math.floor(Math.random() * party.length)]; //Randomly selects party member to attack
         console.log(monsterTarget);
         console.log(this.name + this.attackDesc);
-        var dmg = [Math.ceil(Math.random() * this.attack)];
+        var dmg = [Math.ceil(Math.random() * this.attack) + this.atkMod];
         console.log(monsterTarget.name + " has taken " + dmg + " points of damage!");
         monsterTarget.hp -= dmg;
     };
@@ -129,7 +133,7 @@ angular.module('KittyCrawler')
     function zoneCreator (zoneInfo){
         this.name = zoneInfo.name;
         this.desc = zoneInfo.desc;
-        this.exits = [];
+        this.exits = zoneInfo.exits;
         this.mobs = zoneInfo.mobs;
         
         // this.mob = mobs[i]; // I'm sure this is not the way to do this.

@@ -1,41 +1,42 @@
         <h2 style="text-align: center">Create your first Catventurer!</h2>
         
-        <form ng-if="!kCtrl.party" ng-submit="kCtrl.createKitty">
+        <form ng-if="!kCtrl.party" ng-submit="kCtrl.createKitty()">   <!--Make sure to CALL the function on ng-submit!!!!!-->
         <p class="minorIndent"><input style="width: 250px;" type="text" placeholder="Choose your Kitty Adventurer's name" ng-model="kCtrl.newCat.name"></p>
-        <p class="minorIndent"><input type="radio" name="breed" value="siamese" ng-model="kCtrl.createKitty.breed"> <b>Siamese</b> - Agile, hunter-killers.<br>
-        <input type="radio" name="breed" value="maineCoon" ng-model="kCtrl.createKitty.breed"> <b>Maine Coon</b> - Big, friendly giants.<br>
-        <input type="radio" name="breed" value="tabby" ng-model="kCtrl.createKitty.breed"> <b>Tabby</b> - Well-rounded and adorable.<br>
+        <p class="minorIndent"><input type="radio" name="breed" value="siamese" ng-model="kCtrl.newCat.breed"> <b>Siamese</b> - Agile, hunter-killers.<br>
+        <input type="radio" name="breed" value="maineCoon" ng-model="kCtrl.newCat.breed"> <b>Maine Coon</b> - Big, friendly giants.<br>
+        <input type="radio" name="breed" value="tabby" ng-model="kCtrl.newCat.breed"> <b>Tabby</b> - Well-rounded and adorable.<br>
         </p>
         
         <!--<tr ng-repeat="technology in technologies">-->
         <!--Example ng-click:  ng-click="incrementLikes(technology)-->
         
-        <div class="siameseColors minorIndent" ng-show="kCtrl.createKitty.breed=='siamese'">
+        <div class="siameseColors minorIndent" ng-show="kCtrl.newCat.breed=='siamese'">
         <p>
             <h4>Fur Color</h4>
-            <input type="radio" name="siamColor" value="grayAndBlack" ng-model="kCtrl.createKitty.color">Gray and Black<br>
+            <input type="radio" name="siamColor" value="grayAndBlack" ng-model="kCtrl.newCat.color">Gray and Black<br>
         </p>
         </div>
         
-        <div class="maineCoonColors minorIndent" ng-show="kCtrl.createKitty.breed=='maineCoon'">
+        <div class="maineCoonColors minorIndent" ng-show="kCtrl.newCat.breed=='maineCoon'">
             <p>
             <h4>Fur Color</h4>
-            <input type="radio" name="maineCoonColor" value="blue" ng-model="kCtrl.createKitty.color">Blue<br>
-            <input type="radio" name="maineCoonColor" value="black" ng-model="kCtrl.createKitty.color">Black<br>
-            <input type="radio" name="maineCoonColor" value="calico" ng-model="kCtrl.createKitty.color">Calico<br>
+            <input type="radio" name="maineCoonColor" value="blue" ng-model="kCtrl.newCat.color">Blue<br>
+            <input type="radio" name="maineCoonColor" value="black" ng-model="kCtrl.newCat.color">Black<br>
+            <input type="radio" name="maineCoonColor" value="calico" ng-model="kCtrl.newCat.color">Calico<br>
             </p>
         </div>
         
-        <div class="tabbyColors minorIndent" ng-show="kCtrl.createKitty.breed=='tabby'">
+        <div class="tabbyColors minorIndent" ng-show="kCtrl.newCat.breed=='tabby'">
             <p>
             <h4>Fur Color</h4>
-            <input type="radio" name="tabbyColor" value="orange" ng-model="kCtrl.createKitty.color">Orange<br>
-            <input type="radio" name="tabbyColor" value="brown" ng-model="kCtrl.createKitty.color">Brown<br>
-            <input type="radio" name="tabbyColor" value="white" ng-model="kCtrl.createKitty.color">White<br>
+            <input type="radio" name="tabbyColor" value="orange" ng-model="kCtrl.newCat.color">Orange<br>
+            <input type="radio" name="tabbyColor" value="brown" ng-model="kCtrl.newCat.color">Brown<br>
+            <input type="radio" name="tabbyColor" value="white" ng-model="kCtrl.newCat.color">White<br>
             </p>
         </div>
-        <div class="minorIndent" ng-show="kCtrl.createKitty.color">
-            <a href="#/dungeon.html" type="button" class="btn btn-success" style="margin-bottom:5px" ng-click="kCtrl.createKitty">Start my Catventure!</a>
-                <!--<input class="btn btn-success" type="submit" value="Venture Forth!">-->
+        <div class="minorIndent" ng-show="kCtrl.newCat.color">
+            <input type="submit" class="btn btn-success" style="margin-bottom:5px" value="Start my Catventure!">
+            <!--Rather than using an anchor tag, use input here to properly submit-->
+
         </div>
         </form>
