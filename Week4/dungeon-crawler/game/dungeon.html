@@ -5,7 +5,7 @@
                 <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redLeader.name}}</span>
             </div>
             <div class="col-xs-12 wireFrame">
-                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{::kCtrl.redLeader.hp}}</span>
+                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{kCtrl.redLeader.maxHp}}</span>
             </div>
             <div class="col-xs-12 wireFrame">
                 <span class="pull-right"><b>Class:</b> {{kCtrl.redLeader.class}}</span>
@@ -15,26 +15,26 @@
     <div ng-if="kCtrl.redTwo" id="partyDisplay" class="col-xs-12">
         <div class="row wireFrame">
             <div class="col-xs-12">
-                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redLeader.name}}</span>
+                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redTwo.name}}</span>
             </div>
             <div class="col-xs-12 wireFrame">
-                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{::kCtrl.redLeader.hp}}</span>
+                <span class="pull-right"><b>Health:</b> {{kCtrl.redTwo.hp}} / {{kCtrl.redTwo.maxHp}}}</span>
             </div>
             <div class="col-xs-12 wireFrame">
-                <span class="pull-right"><b>Class:</b> {{kCtrl.redLeader.class}}</span>
+                <span class="pull-right"><b>Class:</b> {{kCtrl.redTwo.class}}</span>
             </div>
         </div>
     </div>
         <div ng-if="kCtrl.redThree" id="partyDisplay" class="col-xs-12">
         <div class="row wireFrame">
             <div class="col-xs-12">
-                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redLeader.name}}</span>
+                <span class="pull-right"><b>Party Leader:</b> {{kCtrl.redThree.name}}</span>
             </div>
             <div class="col-xs-12 wireFrame">
-                <span class="pull-right"><b>Health:</b> {{kCtrl.redLeader.hp}} / {{::kCtrl.redLeader.hp}}</span>
+                <span class="pull-right"><b>Health:</b> {{kCtrl.redThree.hp}} / {{kCtrl.redThree.maxHp}}}</span>
             </div>
             <div class="col-xs-12 wireFrame">
-                <span class="pull-right"><b>Class:</b> {{kCtrl.redLeader.class}}</span>
+                <span class="pull-right"><b>Class:</b> {{kCtrl.redThree.class}}</span>
             </div>
         </div>
     </div>
@@ -47,38 +47,59 @@
     <h1 style="text-align: center">{{kCtrl.currentRoom.name}}</h1>
     <p ng-repeat="descs in kCtrl.currentRoom.desc">{{ descs }} </p>
     
-    <p>Monsters are<b ng-repeat="mob in kCtrl.currentRoom.mobs track by $index"> - {{mob.name}}</b></p>
+    <p>Monsters are<b ng-repeat="mob in kCtrl.currentRoom.mobs track by $index"> - {{mob.name}} ~HP:{{mob.hp}} / {{mob.maxHp}} - </b></p>
     <p></p>
     <p>Exits are<em ng-repeat="exit in kCtrl.currentRoom.exits"> - {{ exit }} </em></p>
 </div>
 
 <div class ="wireFrame" id="uiField">
-    <h2 style="text-align: center">Input or control buttons here</h2>
-        <select class="form-control" id="roomExamine">  
-            <option>Examine</option>
-            <option ng-repeat="member in kittyFactory.party">{{member.name}}</option>
+    <h2 style="text-align: center">User Input</h2>
+        <h4>Examine - </h4>
+        <!--ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" -->
+        <select class="form-control" 
+         
+        ng-change="kCtrl.redLeader.examine(kCtrl.examineTarget); kCtrl.examineTarget='';" 
+        ng-model="kCtrl.examineTarget"
+        id="roomExamine">  
+        <!--  Trying to get this in ng-options also:  decorations as decor.name for decorations in kCtrl.currentRoom.decor-->  
+            <option ng-repeat="(mob, name) in kCtrl.currentRoom.mobs"></option>
+            <!--<option ng-repeat="member as member.name for member in kCtrl.party">{{member.name}}</option>-->
+            <!--<option ng-repeat="member in kCtrl.party">{{member.name}}</option>-->
             <!--<option ng-repeat="stuff in kCtrl.currentRoom.decor">{{stuff}}</option>-->
         </select>
     
-        <select class="form-control" id="roomInteract">  
-            <option>Interact</option>
-            <option>Meow</option>
+        <h4>Interact - </h4>
+        <select ng-model="kCtrl.interact" 
+        ng-change="kCtrl.redLeader[kCtrl.interact]();kCtrl.interact='';" 
+        class="form-control" id="roomInteract">  
+            <!--<option value="" disabled selected>Interact</option>-->
+            <option value="meow">Meow</option>
             <!--<option ng-repeat="mcGuffins in kCtrl.currentRoom.interact">{{mcGuffins}}</option>-->
         </select>
     
-        <select class="form-control" id="roomFIGHT">  
-            <option>FIGHT</option>
-            <option ng-repeat="mob in kCtrl.currentRoom.mobs track by $index">{{mob.name}}</option>
+        <h4>FIGHT - </h4>
+        <select class="form-control" id="roomFIGHT" 
+        ng-change="kCtrl.redLeader.scratch(kCtrl.fightTarget);kCtrl.fightTarget.attackParty();kCtrl.fightTarget=''" 
+        ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" 
+        ng-model="kCtrl.fightTarget">    
+            <!--<option>FIGHT</option>-->
+            <!--<option ng-repeat="mob in kCtrl.currentRoom.mobs track by $index">{{mob.name}}</option>-->
         </select>
     
-        <select class="form-control" id="partyInventory">  
-            <option>Inventory</option>
-            <option ng-repeat="item in kCtrl.redLeader.inventory">{{item}}</option>
+    <br>
+    
+        <h4>Inventory - </h4>
+        <select ng-options="item as item.name for item in kCtrl.redLeader.inventory" ng-model="selected" class="form-control" id="partyInventory" >  
+            <!--<option>Inventory</option>-->
+            <!--<option ng-repeat="item in kCtrl.redLeader.inventory">{{item}}</option>-->
         </select>
-        
-        <select class="form-control" id="roomExits">  
-            <option>Exits</option>
-            <option ng-repeat="exit in kCtrl.currentRoom.exits">{{exit}}</option>
+
+        <h4>Exits - </h4>
+        <select ng-model="kCtrl.exitIndex" ng-change="kCtrl.exitRoom(kCtrl.exitIndex);kCtrl.exitIndex='';" class="form-control" id="roomExits">  
+            <!--<option value="">Exits</option>-->
+            <option value="{{exit}}" ng-repeat="exit in kCtrl.currentRoom.exits"> {{exit}} </option>
         </select>
-    <!--Here will be the UI input, with either buttons or a text input-->
+
+    
+
 </div>

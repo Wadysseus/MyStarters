@@ -6,25 +6,29 @@
         <script type= "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js'></script>
         <script src="js/main.js"></script>
-        <script src="js/rot.min.js"></script>
+        <script src="https://ondras.github.io/rot.js/rot.js"></script>
+        <!--<script src="js/rot.min.js"></script>-->
         <!--<script src="js/rot.js"></script>-->
         <script src="js/main.kittyFactory.js"></script>
         <script src="js/main.kittyControl.js"></script>
+        <script src="js/main.mapControl.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="css/main.css">
         <link href='https://fonts.googleapis.com/css?family=Gravitas+One|Niconne|Lora:400,700italic' rel='stylesheet' type='text/css'>
-        <title>Crypt of Feline Frights!</title>
+        <title>Map of Feline Frights!</title>
     </head>
     
     <header class="cryptBanner">
         <img src="img/krakow!.png">
-        <h1>Welcome to the Crypt of Feline Frights!</h1>
+        <h1>Welcome to the Map of Feline Frights!</h1>
         <img id="secondLightning" style="margin-left:40px" src="img/krakow!.png">
     </header>
     <body ng-controller="kittyControl as kCtrl">
-        <div ng-view=''>
-
-        </div>
+        <div class="mapContainer">
+   <!--<div onload="Game.init()">-->
+        <h1>Yes, this is Map</h1>
+    </div>
+    <!--</div>-->
     </body>
 
 </html>

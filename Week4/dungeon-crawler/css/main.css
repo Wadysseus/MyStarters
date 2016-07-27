@@ -72,12 +72,19 @@ body {
     height: 40vh;
     width: 60vw;
     margin-left: 10px;
+    overflow: scroll;
 }
 
 #uiField {
-    height: 15vh;
+     height: 100%;
     width: 60vw;
 
+}
+
+#uiField h4 {
+  font-family: 'Lora', serif;
+  display: inline-block;
+  margin-left: 15px;
 }
 
 #uiField select {
@@ -90,9 +97,13 @@ body {
     border: red solid 1px;
 }
 
+.mapContainer {
+  width: 500px;
+  height: 500px;
+}
 
 
-
+/*Flashing animation*/
 @-webkit-keyframes blink {
     0% {
         opacity: 1;
