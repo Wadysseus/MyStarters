@@ -52,17 +52,24 @@
     <p>Exits are<em ng-repeat="exit in kCtrl.currentRoom.exits"> - {{ exit }} </em></p>
 </div>
 
-<div class ="wireFrame" id="uiField">
+<div class="minorIndent wireFrame" id="actionScroll">
+    <p ng-repeat="text in kCtrl.actionArray track by $index">-- {{text}}</p>
+    <!--vv Delete these once I get actionArray working vv-->
+    <!--<p ng-repeat="nombres in kCtrl.workDammitArray track by $index"> - {{nombres}}</p>-->
+    <!--<button type="button" ng-click="kCtrl.pushDammit()">Push Dammit Function</button>-->
+    <!--^^ Delete once I get actionArray working ^^-->
+</div>
+
+<div class ="minorIndent wireFrame" id="uiField">
     <h2 style="text-align: center">User Input</h2>
         <h4>Examine - </h4>
         <!--ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" -->
         <select class="form-control" 
-         
-        ng-change="kCtrl.redLeader.examine(kCtrl.examineTarget); kCtrl.examineTarget='';" 
+        ng-change="kCtrl.redLeader.examine(kCtrl.examineTarget);" 
         ng-model="kCtrl.examineTarget"
         id="roomExamine">  
         <!--  Trying to get this in ng-options also:  decorations as decor.name for decorations in kCtrl.currentRoom.decor-->  
-            <option ng-repeat="(mob, name) in kCtrl.currentRoom.mobs"></option>
+            <option ng-model="kCtrl.examineTarget" ng-repeat="mob in kCtrl.currentRoom.mobs" value="{{mob}}">{{mob.name}}</option>
             <!--<option ng-repeat="member as member.name for member in kCtrl.party">{{member.name}}</option>-->
             <!--<option ng-repeat="member in kCtrl.party">{{member.name}}</option>-->
             <!--<option ng-repeat="stuff in kCtrl.currentRoom.decor">{{stuff}}</option>-->
@@ -70,7 +77,7 @@
     
         <h4>Interact - </h4>
         <select ng-model="kCtrl.interact" 
-        ng-change="kCtrl.redLeader[kCtrl.interact]();kCtrl.interact='';" 
+        ng-change="kCtrl.redLeader.[kCtrl.interact];kCtrl.interact='';" 
         class="form-control" id="roomInteract">  
             <!--<option value="" disabled selected>Interact</option>-->
             <option value="meow">Meow</option>
@@ -79,7 +86,7 @@
     
         <h4>FIGHT - </h4>
         <select class="form-control" id="roomFIGHT" 
-        ng-change="kCtrl.redLeader.scratch(kCtrl.fightTarget);kCtrl.fightTarget.attackParty();kCtrl.fightTarget=''" 
+        ng-change="kCtrl.redLeader.scratch(kCtrl.fightTarget);kCtrl.bringOutYerDead();kCtrl.fightTarget=''" 
         ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" 
         ng-model="kCtrl.fightTarget">    
             <!--<option>FIGHT</option>-->
@@ -89,7 +96,10 @@
     <br>
     
         <h4>Inventory - </h4>
-        <select ng-options="item as item.name for item in kCtrl.redLeader.inventory" ng-model="selected" class="form-control" id="partyInventory" >  
+        <select ng-options="item as item.name for item in kCtrl.redLeader.inventory" 
+        ng-model="kCtrl.selectItem"
+        ng-change="kCtrl.redLeader.use(kCtrl.selectItem);kCtrl.selectItem=''"
+        class="form-control" id="partyInventory" >  
             <!--<option>Inventory</option>-->
             <!--<option ng-repeat="item in kCtrl.redLeader.inventory">{{item}}</option>-->
         </select>

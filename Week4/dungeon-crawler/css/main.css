@@ -69,11 +69,22 @@ body {
 
 /*End of Party Display*/
 #worldDisplay {
-    height: 40vh;
-    width: 60vw;
+    /*height: 40vh;*/
+    /*width: 60vw;*/
+    height: 350px;
+    width: 800px;
     margin-left: 10px;
     overflow: scroll;
+    display: inline-block;
 }
+
+
+#actionScroll{
+  height: 200px;
+  width: 800px;
+  overflow: scroll;
+}
+
 
 #uiField {
      height: 100%;
