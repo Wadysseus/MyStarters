@@ -102,8 +102,8 @@ var dieTypes = [6, 8, 10, 12, 20]
                     console.log(this.name + ' has lost all lives and has gone to Meowhalla!')
                     this.dead = true;
                 }
-            // Batting around the corpse if it's "not dead enough." --I think the else if may have fixed the console log spam issue
-            else if (target.hp <= 0 && target.dead == true){
+            // Batting around the corpse if it's "not dead enough." --I think the else if may have fixed the console log spam issue -- OR NOT
+            else if (target.hp <= 0 && target.hp > -5 && target.dead == true){
                 var partialKillText = (this.name + " bats at " + target.name + "'s corpse. It's satisfying in a way only cats understand.");
                 kCtrl.actionArray.push(partialKillText);
                 console.log(this.name + " bats at " + target.name + "'s corpse. It's satisfying in a way only cats understand.")
@@ -117,7 +117,8 @@ var dieTypes = [6, 8, 10, 12, 20]
                 console.log(this.name + " grows bored of batting around " + target.name + "'s corpse.")
                 var deadIndex = kCtrl.currentRoom.mobs.indexOf(target)
                 kCtrl.currentRoom.mobs.splice(deadIndex, 1)
-                kCtrl.redLeader.inventory.push(target.loot) 
+                kCtrl.redLeader.inventory.push.apply(kCtrl.redLeader.inventory, target.loot); // take this loot array of values and push them as individual elements to the inventory array
+                // kCtrl.redLeader.inventory.push(target.loot) 
              
             }  
         },
@@ -138,7 +139,7 @@ var dieTypes = [6, 8, 10, 12, 20]
         },
         use: function(target){
             var useText = (target.useText);
-            kCtrl.actionArray.push(useText + this.itemText);
+            kCtrl.actionArray.push(useText);
             console.log(target.useText + this.itemText);
             target.effect(this);
         }
@@ -156,6 +157,7 @@ var dieTypes = [6, 8, 10, 12, 20]
         this.desc = mobInfo.desc;
         this.dead = false;
         this.type = 'monster';
+        this.loot = mobInfo.loot;
         mobs.push(this);
     };
     
@@ -200,6 +202,7 @@ var dieTypes = [6, 8, 10, 12, 20]
         this.equip = false;
         this.worn = false;
         this.type = 'item';
+        // this.effectText = "";
         items.push(this);
     } //end of item constructor
 
@@ -215,7 +218,7 @@ var dieTypes = [6, 8, 10, 12, 20]
             target.hp += healz;
             var useIndex = kCtrl.redLeader.inventory.indexOf(this)
             kCtrl.redLeader.inventory.splice(useIndex, 1)
-            var itemText = ("You are healed for " + healz +" hp!");
+            // var tunaText = ("You are healed for " + healz +" hp!");
             console.log("You are healed for " + healz +" hp!")
         },
         equip   : false
@@ -309,6 +312,8 @@ var dieTypes = [6, 8, 10, 12, 20]
         zoneCreator  : zoneCreator,
         itemCreator  : itemCreator,
         decorCreator : decorCreator,
+        canOfTuna : canOfTuna,
+        prettyKittyCollar : prettyKittyCollar,
         
         //Arrays
         party      : party,

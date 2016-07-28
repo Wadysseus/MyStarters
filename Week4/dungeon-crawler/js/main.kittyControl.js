@@ -63,6 +63,8 @@ function kittyControl (kittyFactory, $location) {
     
     //new kittyFactory.mobCreator
     
+    
+    function weakMobRandom (){
     var weakMob = ({
         name    : kittyFactory.weakMobs[ Math.floor(Math.random() * kittyFactory.weakMobs.length)],
         loot : [kittyFactory.canOfTuna]
@@ -73,7 +75,7 @@ function kittyControl (kittyFactory, $location) {
         weakMob.maxHp        = weakMob.hp;
         weakMob.attack       = 8;
         var mousekAttacks    = [" lunges at you, poking with its rusty bayonet!", " brings the mouseket to its shoulder and fires!"];
-        weakMob.attackDesc   = mousekAttacks[ Math.floor(Math.random() * mousekAttacks.length)];
+        weakMob.attackDesc   = mousekAttacks[ Math.floor(Math.random() * mousekAttacks.length)];  //Make this equal to a function instead of variable, same way I did weakMobRandom
         weakMob.atkMod       = 0;
         weakMob.desc         = "Scraps of rotting mouseflesh and Mouseketeer uniform still cling to this skeleton. It is aiming its mouseket at you, the affixed bayonet looks rusty but sharp.";
     }
@@ -98,6 +100,8 @@ function kittyControl (kittyFactory, $location) {
         weakMob.attack     = 3;
         weakMob.attackDesc = " bashes its floral form against you!";
         weakMob.desc       = "The Potted Petunia bounces along angrily. You get the vague impression that it's thinking, \"Oh no, not again.\"";
+    }
+    return weakMob;
     }
     
     var mediumMob = ({
@@ -163,7 +167,7 @@ function kittyControl (kittyFactory, $location) {
         "The trip here from Blun, the closest town, was quiet, with only scant signs of local fauna. Now that you’re at the Crypt, you see and smell no signs of other living creatures. The Crypt itself almost seems to suck in sound, and you get the vague impression that on a frequency just beyond your hearing, this place roars its malintent to the world of the living."],
         exits : ['South'],
         exitValues : [1],
-        mobs  : [new kittyFactory.mobCreator(weakMob)],
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
         decor : [kittyFactory.brassDoors]
     });
     kCtrl.room0 = entry0;
@@ -173,7 +177,7 @@ function kittyControl (kittyFactory, $location) {
         desc  : ["Light and fresh air pour into the Crypt for the first time in an age. Profligate cobwebs adorn the walls and ceiling, and your nose wrinkles as the stench of decomposition wafts from beyond the hall. Sconces line the walls, some still hold unlit torches, though the wood is no doubt rotten at this point. Luckily, with your superior feline senses, you’re not hindered the way a lesser being might be.", "Sepulchral beds line the walls, carved alcoves whose inhabitants are little more than dust and bones. An oaken door is set into an alcove on the eastern wall, and the hall continues to the south. Your whiskers twitch. You’re not alone..."],
         exits : ['East','South'],
         exitValues : [2, 5],
-        mobs  : [new kittyFactory.mobCreator(weakMob)]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())]
     });  
 
     var cryptKeeper2 = new kittyFactory.zoneCreator ({
@@ -181,7 +185,7 @@ function kittyControl (kittyFactory, $location) {
         desc  : ["This room is modest in size, with a simple layout, consisting of a small sleeping alcove and enough space for bookshelves, a desk, and a prayer mat. It is comparatively well-preserved. The bed’s sheets have long since disintegrated, but the mattress itself exists, albeit moldy and sunken. There’s no chair for the desk, atop which lies a book, ink and quill, and a signet ring. The majority of the individual shelves have fallen to the cobbles below, but a few remain in place, still housing some hard-bound books and bundles of scrolls."],
         exits : ['West','Up'],
         exitValues : [1, 3],
-        mobs  : [new kittyFactory.mobCreator(weakMob)]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())]
     });      
     
     var hiddenAttic3 = new kittyFactory.zoneCreator ({
