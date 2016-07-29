@@ -53,56 +53,46 @@
 </div>
 
 <div class="minorIndent wireFrame" id="actionScroll">
-    <p ng-repeat="text in kCtrl.actionArray track by $index">-- {{text}}</p>
+    <p class="actionMessages" ng-repeat="text in kCtrl.actionArray track by $index">-- {{text}}</p>
 </div>
 
 <div class ="minorIndent wireFrame" id="uiField">
-    <h2 style="text-align: center">User Input</h2>
+    <h2 style="text-align: center">Select an Action</h2>
         <h4>Examine - </h4>
-        <!--ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" -->
-        <select class="form-control" 
-        ng-change="kCtrl.redLeader.examine(kCtrl.examineTarget);" 
-        ng-model="kCtrl.examineTarget"
-        id="roomExamine">  
-        <!--  Trying to get this in ng-options also:  decorations as decor.name for decorations in kCtrl.currentRoom.decor-->  
-            <option ng-model="kCtrl.examineTarget" ng-repeat="mob in kCtrl.currentRoom.mobs" value="{{mob}}">{{mob.name}}</option>
-            <!--<option ng-repeat="member as member.name for member in kCtrl.party">{{member.name}}</option>-->
-            <!--<option ng-repeat="member in kCtrl.party">{{member.name}}</option>-->
-            <!--<option ng-repeat="stuff in kCtrl.currentRoom.decor">{{stuff}}</option>-->
+        
+        <select class="form-control dropDowns" 
+            ng-options="exItems as exItems.name for exItems in kCtrl.getExamines()" 
+            ng-change="kCtrl.redLeader.examine(kCtrl.examineTarget);kCtrl.examineTarget='';kCtrl.scrollActionLog()" 
+            ng-model="kCtrl.examineTarget"
+            id="roomExamine">  
         </select>
     
         <h4>Interact - </h4>
-        <select ng-model="kCtrl.interact" 
-        ng-change="kCtrl.redLeader.[kCtrl.interact];kCtrl.interact='';" 
-        class="form-control" id="roomInteract">  
-            <!--<option value="" disabled selected>Interact</option>-->
-            <option value="meow">Meow</option>
+        <select 
+            ng-change="kCtrl.redLeader.[kCtrl.interact];kCtrl.interact='';" 
+            class="form-control dropDowns" id="roomInteract">  
+            <option ng-model="kCtrl.interact" value="meow">Meow</option>
             <!--<option ng-repeat="mcGuffins in kCtrl.currentRoom.interact">{{mcGuffins}}</option>-->
         </select>
     
         <h4>FIGHT - </h4>
-        <select class="form-control" id="roomFIGHT" 
-        ng-change="kCtrl.redLeader.scratch(kCtrl.fightTarget);kCtrl.bringOutYerDead();kCtrl.fightTarget=''" 
-        ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" 
-        ng-model="kCtrl.fightTarget">    
-            <!--<option>FIGHT</option>-->
-            <!--<option ng-repeat="mob in kCtrl.currentRoom.mobs track by $index">{{mob.name}}</option>-->
+        <select class="form-control dropDowns" id="roomFIGHT" 
+            ng-change="kCtrl.redLeader.scratch(kCtrl.fightTarget);kCtrl.bringOutYerDead();kCtrl.fightTarget=''" 
+            ng-options="mob as mob.name for mob in kCtrl.currentRoom.mobs" 
+            ng-model="kCtrl.fightTarget">    
         </select>
     
     <br>
     
         <h4>Inventory - </h4>
         <select ng-options="item as item.name for item in kCtrl.redLeader.inventory" 
-        ng-model="kCtrl.selectItem"
-        ng-change="kCtrl.redLeader.use(kCtrl.selectItem);kCtrl.selectItem=''"
-        class="form-control" id="partyInventory" >  
-            <!--<option>Inventory</option>-->
-            <!--<option ng-repeat="item in kCtrl.redLeader.inventory">{{item}}</option>-->
+            ng-model="kCtrl.selectItem"
+            ng-change="kCtrl.redLeader.use(kCtrl.selectItem);kCtrl.selectItem=''"
+            class="form-control dropDowns" id="partyInventory" >  
         </select>
 
         <h4>Exits - </h4>
-        <select ng-model="kCtrl.exitIndex" ng-change="kCtrl.exitRoom(kCtrl.exitIndex);kCtrl.exitIndex='';" class="form-control" id="roomExits">  
-            <!--<option value="">Exits</option>-->
+        <select ng-model="kCtrl.exitIndex" ng-change="kCtrl.exitRoom(kCtrl.exitIndex);kCtrl.exitIndex='';" class="form-control dropDowns" id="roomExits">  
             <option value="{{exit}}" ng-repeat="exit in kCtrl.currentRoom.exits"> {{exit}} </option>
         </select>
 

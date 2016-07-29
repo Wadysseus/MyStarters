@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'LMSCAT';
+  src: url('fonts/LMS_CAT.ttf');
+}
+
 html {
     background-color: #aaa;
     width: 1350px;
@@ -28,13 +33,26 @@ html {
 .cryptBanner img {
     height: 200px;
     display:inline-block;
-    -webkit-animation: blink 1s;
+    -webkit-animation: blink 1s infinite linear;
     -webkit-animation-iteration-count: 1;
-    -moz-animation: blink 1s;
+    -moz-animation: blink 1s infinite linear;
     -moz-animation-iteration-count: 1;
-    -o-animation: blink 1s;
+    -o-animation: blink 1s infinite linear;
     -o-animation-iteration-count: 1;
+    /*animation: blink 1s infinite linear; */
 }
+
+/*.cryptBanner img:hover {*/
+/*    height: 200px;*/
+/*    display:inline-block;*/
+/*    -webkit-animation: blink 1s;*/
+/*    -webkit-animation-iteration-count: 1;*/
+/*    -moz-animation: blink 1s;*/
+/*    -moz-animation-iteration-count: 1;*/
+/*    -o-animation: blink 1s;*/
+/*    -o-animation-iteration-count: 1;*/
+/*    animation: blink 1s 5s; */
+/*}*/
 
  
 body {
@@ -58,8 +76,8 @@ body {
 
 /* Party Display*/
 #partyDisplay {
-    width: 20vw;
-    height: 30vh;
+    width: 200px;
+    height: 100px;
 }
 
 .healthBub {
@@ -86,10 +104,15 @@ body {
 }
 
 
-#uiField {
-     height: 100%;
-    width: 60vw;
 
+#uiField {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+#uiField h2 {
+  font-family: 'LMSCAT';
 }
 
 #uiField h4 {
@@ -112,7 +135,6 @@ body {
   width: 500px;
   height: 500px;
 }
-
 
 /*Flashing animation*/
 @-webkit-keyframes blink {
@@ -184,3 +206,83 @@ body {
         opacity: 1;
     }
 }
+
+/*My crappy attempt*/
+/*@-webkit-keyframes blink {*/
+/*  0% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*  10%{*/
+/*    opacity: 0;*/
+/*  }*/
+/*  15% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*  20% {*/
+/*    opacity: 0;*/
+/*  }*/
+/*  25%{*/
+/*    opacity: 1;*/
+/*  }*/
+/*  30%{*/
+/*    opacity: 0;*/
+/*  }*/
+/*  35%{*/
+/*    opacity: 1;*/
+/*  }*/
+/*    100% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
+/*@-moz-keyframes blink{*/
+/*  0% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*  5%{*/
+/*    opacity: 0;*/
+/*  }*/
+/*  30% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*  35% {*/
+/*    opacity: 0;*/
+/*  }*/
+/*  40%{*/
+/*    opacity: 1;*/
+/*  }*/
+/*  45%{*/
+/*    opacity: 0;*/
+/*  }*/
+/*  50% {*/
+/*        opacity: 1;*/
+/*  }*/
+/*  100% {*/
+/*        opacity: 1;*/
+/*  }*/
+/*}*/
+/*@-o-keyframes blink {*/
+/*  0% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*  5%{*/
+/*    opacity: 0;*/
+/*  }*/
+/*  30% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*  35% {*/
+/*    opacity: 0;*/
+/*  }*/
+/*  40%{*/
+/*    opacity: 1;*/
+/*  }*/
+/*  45%{*/
+/*    opacity: 0;*/
+/*  }*/
+/*  50%{*/
+/*    opacity: 1;*/
+/*  }*/
+/*    100% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/

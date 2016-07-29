@@ -91,3 +91,34 @@
 // var mediumDice = hitDiceNumber * Math.ceil( Math.random() * 8)
 // var toughDice = hitDiceNumber * Math.ceil( Math.random() * 10)
 // var bossDice = hitDiceNumber * Math.ceil( Math.random() * 12)  // Might actually do set HP pool for bosses instead
+
+
+
+
+
+
+// kCtrl.dataScroll = function()
+
+// }
+
+// Stack Overflow Solution to look up
+myApp.directive('scrollOnClick', function() {
+  return {
+    restrict: 'A',  // A = attribute E = Element C = Class
+    link: function(scope, $elm) {
+      $elm.on('click', function() {
+        $("body").animate({scrollTop: $elm.offset().top}, "slow");
+      });
+    }
+  }
+});
+
+    // Pretty Kitty Collar collection of bad ideas:
+        // var collarText = '';
+        // useText : collarText,
+        //     if (this.worn == false){
+        //     collarText = "You put the collar around your neck. Who's a pretty kitty? You're a pretty kitty.";
+        //     }
+        //     if (this.worn == true){
+        //     collarText = "You remove the collar. You feel less pretty.";
+        //     }// END OF BAD IDEAS FOR PRETTY KITTY COLLAR

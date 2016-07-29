@@ -8,23 +8,13 @@ angular.module('KittyCrawler')
         
 var dieTypes = [6, 8, 10, 12, 20]
 
-
-
 function kittyControl (kittyFactory, $location) {
     var kCtrl = this;
     window.kCtrl = kCtrl
     console.log("!", kittyFactory);
+    kCtrl.kittyFactory = kittyFactory;
     
-    kCtrl.actionArray = ["Welcome to CoFF!", 'Enjoy your BRIEF stay, meowtherfudger!!!']
-    
-    // Delete once you get the actionArray working
-    // kCtrl.workDammitArray = [1,2,3,4]
-    
-    // kCtrl.pushDammit = function(){
-    //     var nombreDammit = Math.floor(Math.random() * 20);
-    //     kCtrl.workDammitArray.push(nombreDammit)
-    //     console.log(nombreDammit)
-    // }
+    kCtrl.actionArray = ["Welcome to CoFF!"] //, 'Enjoy your BRIEF stay, meowtherfudger!!!
     
     //creating a new player
     kCtrl.createKitty = function(){
@@ -41,7 +31,6 @@ function kittyControl (kittyFactory, $location) {
         var moveText =""
         var dirValue = kCtrl.currentRoom.exits.indexOf(direction)
         var indexValue = kCtrl.currentRoom.exitValues[dirValue]
-        console.info(moveText)
         if (kCtrl.currentRoom.mobs.length == 0){
             kCtrl.currentRoom = kittyFactory.zones[indexValue];
             var addText = ("You have entered the " + kCtrl.currentRoom.name + ".");
@@ -61,9 +50,6 @@ function kittyControl (kittyFactory, $location) {
     
     // MOB CLASSES
     
-    //new kittyFactory.mobCreator
-    
-    
     function weakMobRandom (){
     var weakMob = ({
         name    : kittyFactory.weakMobs[ Math.floor(Math.random() * kittyFactory.weakMobs.length)],
@@ -74,8 +60,7 @@ function kittyControl (kittyFactory, $location) {
         weakMob.hp           = 2 * Math.ceil( Math.random() * dieTypes[1]);
         weakMob.maxHp        = weakMob.hp;
         weakMob.attack       = 8;
-        var mousekAttacks    = [" lunges at you, poking with its rusty bayonet!", " brings the mouseket to its shoulder and fires!"];
-        weakMob.attackDesc   = mousekAttacks[ Math.floor(Math.random() * mousekAttacks.length)];  //Make this equal to a function instead of variable, same way I did weakMobRandom
+        weakMob.attackDesc   =  mousekAttacks(); //Make this equal to a function instead of variable, same way I did weakMobRandom
         weakMob.atkMod       = 0;
         weakMob.desc         = "Scraps of rotting mouseflesh and Mouseketeer uniform still cling to this skeleton. It is aiming its mouseket at you, the affixed bayonet looks rusty but sharp.";
     }
@@ -104,8 +89,15 @@ function kittyControl (kittyFactory, $location) {
     return weakMob;
     }
     
+    function mousekAttacks (){
+        var mouseAtkDescs    = [" lunges at you, poking with its rusty bayonet!", " brings the mouseket to its shoulder and fires!"];
+        var mouseAtkRandom = mouseAtkDescs [ Math.floor(Math.random() * mousekAttacks.length)];
+        return mouseAtkRandom;
+    }
+    
     var mediumMob = ({
         name      : kittyFactory.mediumMobs[ Math.floor(Math.random() * kittyFactory.mediumMobs.length)],
+        loot : [kittyFactory.canOfTuna]
         
     });
     if (mediumMob.name == 'Sentient Vacuum Cleaner'){
@@ -157,6 +149,15 @@ function kittyControl (kittyFactory, $location) {
      }    
     // Want to add in function where if any mob's health is <= 50%, then Spritzlock has a 50% chance to use heal spray
     
+    var mobCerberus = ({
+        name : 'The Cerberus',
+        hp : 666,
+        maxHp : 666,
+        attack : 20,
+        attackDesc : " snaps at you with its outer heads, which you dodge nimbly...  right into the middle head's blasting hellfire!",
+        atkMod : 5,
+        desc : 'The Cerberus leers at you hungrily, licking its three sets of chops. This is a big, angry, black dog, and each mouth emanates fire and brimstone.'
+    })
     
     // END OF MOBS
     
@@ -177,7 +178,8 @@ function kittyControl (kittyFactory, $location) {
         desc  : ["Light and fresh air pour into the Crypt for the first time in an age. Profligate cobwebs adorn the walls and ceiling, and your nose wrinkles as the stench of decomposition wafts from beyond the hall. Sconces line the walls, some still hold unlit torches, though the wood is no doubt rotten at this point. Luckily, with your superior feline senses, you’re not hindered the way a lesser being might be.", "Sepulchral beds line the walls, carved alcoves whose inhabitants are little more than dust and bones. An oaken door is set into an alcove on the eastern wall, and the hall continues to the south. Your whiskers twitch. You’re not alone..."],
         exits : ['East','South'],
         exitValues : [2, 5],
-        mobs  : [new kittyFactory.mobCreator(weakMobRandom())]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.oldTorches]
     });  
 
     var cryptKeeper2 = new kittyFactory.zoneCreator ({
@@ -185,33 +187,37 @@ function kittyControl (kittyFactory, $location) {
         desc  : ["This room is modest in size, with a simple layout, consisting of a small sleeping alcove and enough space for bookshelves, a desk, and a prayer mat. It is comparatively well-preserved. The bed’s sheets have long since disintegrated, but the mattress itself exists, albeit moldy and sunken. There’s no chair for the desk, atop which lies a book, ink and quill, and a signet ring. The majority of the individual shelves have fallen to the cobbles below, but a few remain in place, still housing some hard-bound books and bundles of scrolls."],
         exits : ['West','Up'],
         exitValues : [1, 3],
-        mobs  : [new kittyFactory.mobCreator(weakMobRandom())]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.bookShelf]
     });      
     
     var hiddenAttic3 = new kittyFactory.zoneCreator ({
         name  : "Hidden Attic",
-        desc  : ["This space is cramped and cluttered with knick-knacks and forgotten chests and trunks. It’s even darker in here than the rest of the Crypt, save for an eerie chartreuse light emanating from beneath the seal of a musty old coffin tucked away in the corner. This isn’t ominous at all…"],
+        desc  : ["This space is cramped and cluttered with knick-knacks and forgotten chests and trunks. Stuck in between a couple of boxes, a feather wand stands upright. It’s even darker in here than the rest of the Crypt, save for an eerie chartreuse light emanating from beneath the seal of a musty old coffin tucked away in the corner. This isn’t ominous at all…"],
         exits : ['Down'],
         exitValues : [2],
-        mobs  : [new kittyFactory.mobCreator(mediumMob)]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.featherWand]
     });  
     
-    var fetidTunnel4 = new kittyFactory.zoneCreator ({
+    var fetidMouth4 = new kittyFactory.zoneCreator ({
         name  : "Mouth of the Fetid Tunnel",
         desc  : ["A solid wall of musky stench greets your nose as you pass into this section of the Crypt. Blood, rot, and predator. Your heart speeds up, and your ears twitch back and forth, scanning for any warning of danger."],
         exits : ['East', 'Down'],
         exitValues : [5, 7],
-        mobs  : [new kittyFactory.mobCreator(mediumMob)]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.badSmell]
     }); 
     
-    var fetidTunnel5 = new kittyFactory.zoneCreator ({
+    var rehtnapAltar5 = new kittyFactory.zoneCreator ({
         name  : "Altar to Rehtnap",
         desc  : ["You reach the end of the Main Hall, which terminates in a small shrine to the Felid deity of Death and Rebirth and Death and Rebirth and So On and So Forth, Rehtnap. Shredded scraps of wall tapestries litter the floor, and you spy scratch marks on the walls. A small brazier, stained with flakes of blood and milk, is set into an altar before a worn, pewter statue of Rehtnap, the dark god reclined and licking its paw, as if tasting past offerings.", 
         "To the West, you see an open doorway, the door itself in splinters and planks, as if rent asunder by mighty thews. Beyond that, a gloom swallows the light and air, leaving the room in an impenetrable murk.",
-        "To the East, you see a door of birch and cold iron, seemingly untouched by the eons. Upon it you spy symbols carved in the wood then limned with pale silver. The language is too archaic to fully parse, but you recognize it as Middle Felid and are able to get the gist of it. As best you can tell, it references some sort of cleansing and worship of the deity Sebboh, whose domains encompass mischief and adventure."],
+        "To the East, you see a door of birch and cold iron, seemingly untouched by the eons. Upon it you spy symbols carved in the wood then limned with pale silver. The language is too archaic to fully parse, but you recognize it as Middle Felid and are able to get the gist of it. As best you can tell, it references some sort of cleansing and worship of the deity Sebboh, whose domains encompasses mischief and adventure."],
         exits : ['North','East', 'West'],
         exitValues : [1, 6, 4],
-        mobs  : [new kittyFactory.mobCreator(mediumMob)]
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.rehtnapStatue]
     }); 
     var catBath6 = new kittyFactory.zoneCreator ({
         name  : "Sebboh’s Cat Bath",
@@ -219,8 +225,34 @@ function kittyControl (kittyFactory, $location) {
         "The floor and walls are pristine tiles, and in the center of the room, a raised bath babbles with clear, cool water. As your eyes adjust to the ambient radiance, you recognize the figure of Nivlac, human servant and avatar of Sebboh, in the form of a statue spitting water into the pool."],
         exits : ['West'],
         exitValues : [5],
-        mobs  : []
+        mobs  : [],
+        decor : [kittyFactory.nivlacStatue]
     }); 
+    var fetidTunnel7 = new kittyFactory.zoneCreator ({
+        name  : "The Fetid Tunnel",
+        desc  : ["You descend into the tunnel’s abyssal maw. Darkness closes in on you. The air is cloying, humid, and you hiss reflexively when something slimy drops on your ear. Even with your superior feline senses, you only just barely perceive shapes and shadows. Stepping forward, your leading paw finds a few inches of tepid water. You paw around at the edges, but can find no way to go forward that isn’t wet. Water. Why did it have to be water?"],
+        exits : ['South', 'Up'],
+        exitValues : [8,4],
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.grossWater]
+    }); 
+    var stygianStream8 = new kittyFactory.zoneCreator ({
+        name  : "The Stygian Stream",
+        desc  : ["The water is luke-warm and you swear something just brushed past your leg. A vermilion glow pulses regularly from further down the tunnel, accompanied by a wave of heat each time.  You hear skitterings along the ceiling as well. It seems like everything else that’s alive in here is fleeing in the opposite direction from where you’re headed."],
+        exits : ['West', 'North'],
+        exitValues : [9,7],
+        mobs  : [new kittyFactory.mobCreator(weakMobRandom())],
+        decor : [kittyFactory.vermilionPulse]
+    });
+    var denOfCerberus9 = new kittyFactory.zoneCreator ({
+        name  : "Den of Cerberus",
+        desc  : ["The tunnel opens into a giant natural amphitheater.  The vaunted ceilings and rock walls radiate with heat. You see a dark, furry, shape curled up in the corner. As you step forward, the gargantuan creature snuffles, raising first one head, then another, then a third. Canine snouts inhale the air, finding your scent, and the Cerberus turns, fixing its six eyes upon you. Spittle flies out as it roars in rage and hunger, and you notice the drool pooling forward, realizing now what the water you’ve been crawling through actually was.",
+        "Time for a boss fight!"],
+        exits : ['East'],
+        exitValues : [8],
+        mobs  : [mobCerberus],
+        decor : [kittyFactory.cerberusAlcove]
+    });
 // ROOMS END HERE
 
 kCtrl.bringOutYerDead = function (){
@@ -233,6 +265,17 @@ kCtrl.bringOutYerDead = function (){
     }
 };
 
+kCtrl.getExamines = function (){
+    return [kCtrl.redLeader].concat(kCtrl.currentRoom.mobs).concat(kCtrl.currentRoom.decor);
+};
 
-
+kCtrl.scrollActionLog = function () {$('.dropDowns').on('click',function(){
+ // Preventing default action of the event
+    event.preventDefault();
+    // Getting the height of the text added
+    var n = $('.actionMessages').height();
+  // scroll down the height of the text added inside the scrolling div
+    $('#actionScroll').animate({ scrollBottom: n }, 50);
+})
+}
 }

@@ -27,7 +27,7 @@ var dieTypes = [6, 8, 10, 12, 20]
         this.lives = 9;
         this.inventory = [canOfTuna, prettyKittyCollar];
         this.class = 'Catventurer';
-        this.desc = "You examine yourself. You're looking purrty good! You are " + this.name + ", the " + this.breed + " " + this.class + "! Your fur is " + this.color + " and " + this.furLength + " in length. You have " + this.lives + " lives left, and you could really go for a can of tuna.";
+        this.desc = "You examine yourself. You're looking purrty good! You are " + this.name + ", the " + this.breed + " " + this.class + "! Your fur is " + this.color + " and " + this.furLength + " in length. You could really go for a can of tuna.";  //ou have " + this.lives + " lives left, and y
         this.atkBoost = 0;
         this.type = 'kitty';
         
@@ -258,35 +258,27 @@ var dieTypes = [6, 8, 10, 12, 20]
         name    : 'Pretty Kitty Collar',
         desc    : "This collar is legit, it has a little dingly bell and everything. If you could see pink, you'd be tickled that exact color right now.",
         useText : "You put the collar around your neck. Who's a pretty kitty? You're a pretty kitty.",
+        worn    : false,
         effect  : function (target){
-            if (this.worn == false){
+            if (this.worn == false){  // if (this.worn) Boolean Zen - best way to deal with properties on objects
             this.useText = "You put the collar around your neck. Who's a pretty kitty? You're a pretty kitty.";
             target.hp += 15;
             target.maxHp += 15;
             target.atkBoost = dieTypes[1];  
-            this.worn = true;
+            console.log(this, target);
+            this.worn = !this.worn;
             }
-            if (this.worn == true){
+            else if (this.worn == true){  //  else if (!this.worn) Boolean Zen - best way to deal with properties on objects
             this.useText = "You remove the collar. You feel less pretty.";
             target.hp -= 15;
             target.maxHp -= 15;
             target.atkBoost = 0;  
-            this.worn = false;
+            console.log(this, target);
+            return this.worn = false;
             }
         },
-        equip   : true,
-        worn    : false
+        equip   : true
     });
-    // Pretty Kitty Collar collection of bad ideas:
-        // var collarText = '';
-        // useText : collarText,
-        //     if (this.worn == false){
-        //     collarText = "You put the collar around your neck. Who's a pretty kitty? You're a pretty kitty.";
-        //     }
-        //     if (this.worn == true){
-        //     collarText = "You remove the collar. You feel less pretty.";
-        //     }// END OF BAD IDEAS FOR PRETTY KITTY COLLAR
-
 
 // END OF ITEMS //
 
@@ -298,11 +290,60 @@ var dieTypes = [6, 8, 10, 12, 20]
         decor.push(this);
     }// end of decor constructor
     
+    
+// DECOR POPULATION //
     // Should probably just put this in the Controller along with everything else, unless I want to start creating different files for rooms/items/decor and then another file for players/monsters
     var brassDoors = new decorCreator( {
         name : 'Brass Doors' ,
         desc : 'Upon closer examination, you see that these doors are adorned with feliglyphs depicting yarn, mice, and death.'
     })
+    
+    var oldTorches = new decorCreator({
+        name : 'Old Torches',
+        desc : "You briefly consider taking a torch with you, but then you remember you're a cat, and light is for lesser creatures."
+    })
+    
+    var bookShelf = new decorCreator({
+        name : "Bookshelf",
+        desc : "Most of the books are too faded make out the titles, but you do spot a copy of \"Adventures in Wonderland\". The Cheshire Cat leers at you from the cover when you pick it up. Maybe it'll be worth a read after you escape the Crypt."
+    })
+    
+    var featherWand = new decorCreator({
+        name : "Feather Wand",
+        desc : "You sense a great energy in this wand. A burst of feathers adorn the end. You start pawing the feathers, rolling about and batting them. This is amazing!  Man, feathers are the best, wheee- NO!  No, you have a quest to do.  You must focus, and sadly put the feather wand away."
+    })
+    
+    var badSmell = new decorCreator({
+        name : "Stench",
+        desc : "You inhale the stench further. What an amazing smell you've discovered!"
+    })
+    
+    var rehtnapStatue = new decorCreator({
+        name : "Statue of Rehtnap",
+        desc : "The statue's eyes follow you wherever you go. You get lost in a staring contest with it. \"Soon...\" whispers into your mind, snapping you back to attention. You shudder and decide not to linger here."
+    })
+ 
+    var nivlacStatue = new decorCreator({
+        name : "Statue of Nivlac",
+        desc : "This is a statue of Sebboh's servant, Nivlac. He takes on the appearance of a juvenile human with spiky hair. You spy the artist's initials etched into the back of the left sneaker: \"BW\"."
+    })
+    
+    var grossWater = new decorCreator({
+        name : "The Water",
+        desc : "Something doesn't smell right about this water. You pat at it a couple of times with your paws, and hear a splash off in the distance, then the water surges forward as if displaced by a massive bulk."
+    })
+    
+    var vermilionPulse = new decorCreator({
+        name : "The Pulsing Light",
+        desc : "Pausing for a moment, you sniff the air after one of the waves of heat. Sulfur and animal musk."
+    })
+    
+    var cerberusAlcove = new decorCreator({
+        name : "The Cerberus' Alcove",
+        desc : "Peering past the Cerberus to where it lay, you spy the skeletons of past Catventurers, bones chewed up or ground to dust."
+    })
+    
+    // END OF DECOR POPULATION
     
     return {
         
@@ -312,8 +353,21 @@ var dieTypes = [6, 8, 10, 12, 20]
         zoneCreator  : zoneCreator,
         itemCreator  : itemCreator,
         decorCreator : decorCreator,
+        
+        //Individual items
         canOfTuna : canOfTuna,
         prettyKittyCollar : prettyKittyCollar,
+        // Individual decor
+        brassDoors  : brassDoors,
+        oldTorches  : oldTorches,
+        bookShelf : bookShelf,
+        featherWand : featherWand,
+        badSmell : badSmell,
+        rehtnapStatue : rehtnapStatue,
+        nivlacStatue : nivlacStatue,
+        grossWater : grossWater,
+        vermilionPulse : vermilionPulse,
+        cerberusAlcove : cerberusAlcove,
         
         //Arrays
         party      : party,
