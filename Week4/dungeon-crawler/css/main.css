@@ -127,9 +127,9 @@ body {
     margin-left: 10px;
 }
 
-.wireFrame {
-    border: red solid 1px;
-}
+/*.wireFrame {*/
+/*    border: red solid 1px;*/
+/*}*/
 
 .mapContainer {
   width: 500px;

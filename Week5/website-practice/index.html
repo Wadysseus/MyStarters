@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <title>Week 5 Practice Site</title>
+    </head>
+    
+    <header>
+        <div id="navContainer" class="container">
+            <nav id="yesThisIsNav" class="zoomGroup">
+                <ul id="yesThisIsNavList">
+                    <li>
+                        <button onclick="dropSounds()" type="button" class="btn btn-default navbar-btn dropBtn">First Link</button>
+                            <ul class="dropdown-toggle" data-toggle="dropdown""> 
+                                <li onclick="fireSound.play()"><a href="#">Fire</a></li>
+                                <li onclick="waterSound.play()"><a href="#">Water</a></li>
+                                <li onclick="iceSound.play()"><a href="#">Ice</a></li>
+                                <li onclick="lightningSound.play()"><a href="#">Lightning</a></li>
+                                <li onclick="shadowSound.play()"><a href="#">Shadow</a></li>
+                            </ul>
+                    </li>
+                    <li><button onclick="wrongSound.play()" type="button" class="btn btn-default navbar-btn">Second Link</button></li>
+                    <li><button onclick="wrongSound.play()" type="button" class="btn btn-default navbar-btn">Third Link</button></li>
+                </ul>
+                
+            </nav>
+            <img id="ctDoor" class="pull-right" onmousedown="knock.play()" src="img/ct-door.gif">
+        </div>
+        <h1 style="text-align:center">Goal:</h1>
+        <h4 style="text-align:center">Create a responsive site with a good Jumbotron<small> (and a sick navbar)</small></h4>
+        <div class="ct">
+            <img class="pull-right fadeImg" onmouseover="frogRibbit.play()" src="img/ct-frog-sprite.png">
+            
+        </div>
+    </header>
+    
+    <body>
+        <div class="jumbotron">
+            <div class="jumboElements">
+              <h1 class="display-3 dungeon">Hello, world!</h1>
+              <p class="lead dungeon">This has the lead class. It is also in the Advanced Dungeons & Dragons 2nd edition title font.</p>
+              <hr class="m-y-2">
+              <p>This does not.</p>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" onclick="ozzieSound.play()" href="#" role="button">This is my EVIL laugh</a>
+                <a class="btn btn-primary btn-lg" onclick="kefkaLaugh.play()" href="#" role="button">This is my EVILER laugh</a>
+                <a class="btn btn-warning btn-lg" onclick="epochSound.play()" href="#" role="button">It's not stupid, it's advanced!</a>
+              </p>
+            </div>  
+        </div>
+        <div class="ct">
+            <img class="ct pull-left fadeImg" src="img/ct-nu-sprite.png">
+        </div>
+        
+        <div id="cf">
+          <img class="bottom" src="img/ct-nu-sprite.png" />
+          <img class="top" onmouseover="frogRibbit.play()" src="img/ct-frog-sprite.png" />
+        </div>
+        
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Example Dropdown
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+            </ul>
+          </div>
+        
+    </body>
+    
+</html>
+

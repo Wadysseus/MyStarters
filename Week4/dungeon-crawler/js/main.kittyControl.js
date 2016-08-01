@@ -80,7 +80,7 @@ function kittyControl (kittyFactory, $location) {
         weakMob.desc       = "The Skeltarcher draws a bead on you with its bow, but you're pretty sure its aim is kinda spoopy.";
     }
     if (weakMob.name == 'Potted Petunia'){
-        weakMob.hp         = 5 * Math.ceil( Math.random() * dieTypes[0] + 5);
+        weakMob.hp         = 4 * Math.ceil( Math.random() * dieTypes[0] + 4);
         weakMob.maxHp      = weakMob.hp;
         weakMob.attack     = 3;
         weakMob.attackDesc = " bashes its floral form against you!";
@@ -275,7 +275,7 @@ kCtrl.scrollActionLog = function () {$('.dropDowns').on('click',function(){
     // Getting the height of the text added
     var n = $('.actionMessages').height();
   // scroll down the height of the text added inside the scrolling div
-    $('#actionScroll').animate({ scrollBottom: n }, 50);
+    $('#actionScroll').animate({ scrollTop: n }, 50);
 })
 }
 }

@@ -22,3 +22,6 @@ angular.module('KittyCrawler').config(function($routeProvider) {
         redirectTo: '/'
       });
 });
+
+var catSound = new Audio ();
+catSound.src = "sounds/Cat.wav"

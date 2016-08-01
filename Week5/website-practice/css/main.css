@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'friz_quadratabold';
+    src: url('./fonts/friz_quadrata_bold-webfont.woff2') format('woff2'),
+         url('./fonts/friz_quadrata_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background-color: #ccc;
+    margin-top:10px;
+}
+
+body{
+    background-color: #eee;
+    width: 1350px;
+    margin: auto;
+}
+
+#navContainer{
+    background-color: #dfdfef;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-sizing: border-box;
+    border-bottom: groove #aaa 3px;
+    border-left: inset #aaa 1px;
+    border-right: inset #aaa 1px;
+}
+
+#yesThisIsNav {
+    float: left;
+    position: relative;
+    z-index: 99;
+}
+
+#yesThisIsNav li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right:5px;
+}
+
+#yesThisIsNavList{
+    position: relative;
+}
+
+#yesThisIsNavList button:hover{
+    background-color: peachpuff;
+}
+
+#yesThisIsNavList button:active{
+    background-color: chartreuse;
+}
+
+/*.dropBtn {*/
+/*    position:relative;*/
+/*}*/
+
+/*.dropDown {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*}*/
+
+/*.dropBtn:click .dropDown {*/
+/*    display: inline-block;*/
+/*}*/
+
+#ctDoor {
+    width: 32px;
+    height: 48px;
+    margin-top: 5px;
+    cursor: -webkit-grabbing;
+}
+
+.jumbotron {
+    border-radius: .3rem;
+    background-color: aliceblue;
+}
+
+.jumboElements{
+    margin: 0px 5px;
+}
+
+.dungeon {
+    font-family: friz_quadratabold;
+}
+
+/*Not sure what this does yet*/
+/*.zoomGroup {*/
+/*    zoom: 1;*/
+/*}*/
+
+
+
+/*Messing around with cross-fade*/
+
+.ct img {
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.ct img.fadeImg:hover {
+  opacity:0;
+}
+
+#cf {
+  position:relative;
+  height:128px;
+  width:128px;
+  margin:0 auto;
+}
+
+
+/*Messing around with cross-fade*/
+#cf img {
+  position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+#cf img.top:hover {
+  opacity:0;
+}
